@@ -1,5 +1,5 @@
 // sw.js - 应用壳缓存，离线可用
-const CACHE = 'inspire-v3';
+const CACHE = 'inspire-v4';
 const SHELL = [
   './', './index.html', './manifest.webmanifest',
   './css/styles.css',
