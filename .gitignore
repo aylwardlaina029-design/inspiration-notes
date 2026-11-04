@@ -1,0 +1,16 @@
+# 依赖与本地数据
+node_modules/
+
+# WorkBuddy 工作区数据（会话记忆、任务等）
+.workbuddy/
+
+# WorkBuddy 应用发布内部标记
+.wbapp_*.genie
+
+# 从资料库导出的临时文件（自动生成）
+_design_latest.html
+_design_text.txt
+
+# 系统杂项
+Thumbs.db
+.DS_Store

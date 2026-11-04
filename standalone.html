@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="QIVM5HU4puH9wRtRAdCERq" style=""><head data-page-node-id="28CY1F2pZr18Sws9hLE19r">
+<meta charset="UTF-8" data-page-node-id="M3soJAx0jzRLJ5RKqLYMV6">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" data-page-node-id="yVK1QXFf7MAERUfIF97SN6">
+<meta name="theme-color" content="#4E9A6C" data-page-node-id="JbxZPxztRwFhp48OV3JqFm">
+<title>灵感记录</title>
+<style>
+/* =====================================================================
+   灵感记录 · 视觉设计系统「清新自然 · 绿色治愈系」v1.0
+   配色与规格取自视觉设计方案：自然绿主色 + 暖米白底 + 三模块点缀色
+   原则：纸感优先、绿为骨架彩为点缀、统一圆角语言；功能与信息结构零改动
+   ===================================================================== */
+:root{
+  /* —— 色彩令牌 · 自然绿治愈系 —— */
+  --bg:#F7F5EF;            /* 页面底·暖米白 */
+  --surface:#FFFFFF;       /* 卡面 */
+  --surface-2:#F2F7F3;     /* 次级面·浅绿卡 */
+  --green-50:#EFF6F1;      /* 绿 50·浅底 / hover 背景 */
+  --green-100:#DCEBE1;     /* 绿 100·次级按钮底 / 标签底 */
+  --ink:#2C3A31;           /* 一级文字·标题 */
+  --text:#2C3A31;          /* 正文 */
+  --muted:#6B7A6F;         /* 二级文字 */
+  --faint:#9AA79D;         /* 三级文字·占位/空状态 */
+  --line:#E8E5DC;          /* 分割线 */
+
+  --primary:#4E9A6C;       /* 自然绿 500·品牌色（图标/选中/FAB） */
+  --primary-d:#3F8759;     /* 绿 600·主按钮/按压 */
+  --primary-deep:#2F6543;  /* 绿 700·选中文字/已完成 */
+  --primary-soft:#9CC7AE;  /* 绿 300·描边/光环 */
+  --mist:#9CC7AE;          /* 浅绿描边（复选框等） */
+  --wood:#8A7968;          /* 大地棕·相对日期 */
+  --wood-d:#7A6B5C;
+  --snow:#F2F7F3;          /* 浅绿卡 */
+
+  --amber:#E8A93D;         /* 阳光琥珀·提醒/到期/有心情 */
+  --amber-d:#A87415;       /* 琥珀加深·文字 */
+  --amber-100:#FBF1DC;     /* 琥珀浅阶 */
+  --gold:#E8A93D;          /* 提醒（别名） */
+  --vermilion:#C96F5E;     /* 危险/逾期 */
+  --danger:#C96F5E;
+  --danger-bg:#F9E9E5;
+  --danger-line:#EFD8D2;   /* 极浅砖红描边·危险区卡片 */
+  --blossom:#E08E8E;       /* 花粉粉·灵感 */
+  --blossom-d:#C97878;     /* 花粉粉加深·标签文字 */
+  --blossom-100:#FAECEC;   /* 花粉粉浅阶·标签底 */
+  --peach:#E08E8E;         /* 灵感（别名） */
+  --violet:#E08E8E;        /* 灵感（别名） */
+  --sky:#6FA8CF;           /* 天空蓝·日程/链接/信息 */
+  --sky-d:#3E7DA8;         /* 天空蓝加深·信息按钮文字 */
+  --sky-100:#E8F1F7;
+
+  /* —— 字体令牌 —— */
+  --font-sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  --font-serif:"Songti SC","STSong","SimSun","Noto Serif SC",serif;
+
+  /* —— 圆角四档（18 / 14 / 10 / 999），输入框 13、小按钮 11 按文档单独规定 —— */
+  --r-card:18px;           /* 卡片·容器·空状态 */
+  --r-btn:14px;            /* 按钮 */
+  --r-btn-sm:11px;         /* 小按钮 */
+  --r-input:13px;          /* 输入框 */
+  --r-sm:10px;             /* 小件·标签块 */
+  --r-pill:999px;          /* 胶囊标签 */
+
+  /* —— 间距 / 阴影 —— */
+  --shadow:0 1px 2px rgba(46,64,48,.04),0 6px 18px rgba(46,64,48,.05);
+  --shadow-btn:0 4px 12px rgba(63,135,89,.28);
+  --tap:44px;
+}
+
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  font-family:var(--font-sans);
+  background:radial-gradient(130% 90% at 50% -10%,#FBFAF6 0%,var(--bg) 58%);
+  color:var(--text); line-height:1.6;
+  -webkit-font-smoothing:antialiased; letter-spacing:.2px;
+}
+::placeholder{color:var(--faint); opacity:1}
+
+/* 焦点可见性（无障碍） */
+:focus-visible{outline:2px solid var(--primary); outline-offset:2px; border-radius:8px}
+
+/* —— 页面切换动效（§5：淡入上移 4px，200ms ease-out）—— */
+@keyframes viewIn{from{opacity:0; transform:translateY(4px)}to{opacity:1; transform:translateY(0)}}
+#view.view-enter{animation:viewIn .2s ease-out}
+
+/* —— 顶部标题 —— */
+.app-header{
+  position:sticky; top:0; z-index:5;
+  background:linear-gradient(180deg,rgba(250,245,238,.96),rgba(250,245,238,.78));
+  backdrop-filter:saturate(140%) blur(8px);
+  padding:18px 18px 12px; text-align:center;
+  border-bottom:1px solid var(--line);
+}
+.app-header h1{font-family:var(--font-serif); font-size:20px; margin:0; letter-spacing:4px; color:var(--ink); font-weight:600}
+.app-header p{margin:4px 0 0; font-size:12px; color:var(--faint); letter-spacing:1px}
+
+/* 顶部右上角菜单图标（圆形浅绿底 + Green 600 线性菜单） */
+.header-gear{
+  position:absolute; top:12px; right:14px; width:38px; height:38px;
+  border:1px solid var(--line); border-radius:50%;
+  background:var(--green-50); color:var(--primary-d);
+  font-size:18px; line-height:1; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:var(--shadow); transition:.15s ease-out;
+}
+.header-gear:hover{background:var(--green-100); color:var(--primary-deep); border-color:var(--primary-soft)}
+.header-gear:active{transform:scale(.92)}
+.header-gear:focus-visible{outline:2px solid var(--primary); outline-offset:2px}
+
+/* —— 右侧滑出设置抽屉（清新自然·绿色治愈系） —— */
+.drawer-overlay{position:fixed; inset:0; z-index:60; background:rgba(46,55,68,.42); opacity:0; visibility:hidden; transition:opacity .18s ease-out,visibility .18s ease-out}
+.drawer-overlay.show{opacity:1; visibility:visible}
+
+.drawer{position:fixed; top:0; right:0; bottom:0; z-index:70; width:min(86vw,340px);
+  background:var(--surface); border-left:1px solid var(--line);
+  box-shadow:-10px 0 34px rgba(46,55,68,.16);
+  transform:translateX(100%); transition:transform .2s cubic-bezier(.4,0,.2,1);
+  display:flex; flex-direction:column}
+.drawer.open{transform:translateX(0)}
+.drawer-head{display:flex; align-items:center; justify-content:space-between;
+  padding:16px 18px; border-bottom:1px solid var(--line); flex:none;
+  background:linear-gradient(180deg,rgba(250,245,238,.96),rgba(250,245,238,.82))}
+.drawer-title{font-family:var(--font-serif); font-size:17px; font-weight:600; color:var(--ink); letter-spacing:2px}
+.drawer-close{width:34px; height:34px; border:none; border-radius:var(--r-btn-sm); background:var(--surface-2); color:var(--text); font-size:15px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.15s ease-out}
+.drawer-close:hover{background:var(--primary); color:#fff}
+.drawer-close:active{transform:scale(.92)}
+.drawer-close:focus-visible{outline:2px solid var(--primary); outline-offset:2px}
+.drawer-body{flex:1; overflow-y:auto; padding:14px 16px calc(24px + env(safe-area-inset-bottom))}
+
+.view{max-width:520px; margin:0 auto; padding:10px 16px 120px}
+
+.loading{padding:40px; text-align:center; color:var(--muted)}
+
+/* —— 顶部 hero（日期） —— */
+.date-hero{padding:14px 6px 16px}
+.date-hero-main{font-family:var(--font-serif); font-size:24px; font-weight:600; color:var(--ink); letter-spacing:2px}
+.date-hero-sub{font-size:13px; color:var(--muted); margin-top:4px; letter-spacing:1px}
+
+/* —— 卡片 —— */
+.card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r-card); padding:16px; margin:14px 0; box-shadow:var(--shadow)}
+.card-title{font-size:15px; font-weight:600; color:var(--ink); margin-bottom:12px; letter-spacing:.5px}
+/* 卡片标题里的计数（如 今日待办 (0/3)）用 Green 700 */
+.card-count{color:var(--primary-deep)}
+
+/* —— 空状态（§4.4 三要素：自然装饰 + 二级色短句 + 三级色行动建议）—— */
+.empty{
+  background:var(--surface-2); border-radius:var(--r-card);
+  padding:26px 18px; text-align:center; margin:12px 0;
+}
+.empty-decor{font-size:30px; line-height:1; margin-bottom:8px}
+.empty-title{font-size:15px; color:var(--muted); margin-bottom:4px}
+.empty-hint{font-size:13px; color:var(--faint)}
+/* 状态型短提示（非空状态，如「未记录」）保持一行轻量文字 */
+.empty-note{font-size:13px; color:var(--faint); padding:6px 2px}
+
+/* —— 按钮（§4.1 五档语义）—— */
+.btn{
+  min-height:var(--tap); border:none; border-radius:var(--r-btn); padding:11px 18px;
+  font-size:14px; font-weight:600; cursor:pointer; letter-spacing:.5px;
+  background:var(--surface-2); color:var(--text);
+  display:inline-flex; align-items:center; justify-content:center; gap:6px;
+  transition:.18s ease-out;
+}
+.btn svg{width:17px; height:17px; flex:none; display:block}
+.btn:active{transform:scale(.97)}
+/* 主要：Green 600 / 白字 —— 每屏最多一个 */
+.btn.primary{background:var(--primary-d); color:#fff; box-shadow:var(--shadow-btn)}
+.btn.primary:active{background:var(--primary-deep)}
+/* 次要：Green 100 / Green 700 */
+.btn.secondary{background:var(--green-100); color:var(--primary-deep)}
+/* 描边：白底 / 二级字 / 分割线边 */
+.btn.outline{background:var(--surface); color:var(--muted); border:1px solid var(--line)}
+/* 危险：浅砖红底 / 砖红字 */
+.btn.danger{background:var(--danger-bg); color:var(--vermilion)}
+/* 幽灵：透明 / Green 700 文字 */
+.btn.ghost{background:transparent; color:var(--primary-deep)}
+/* 信息：天空蓝系，区别于主操作 */
+.btn.info{background:var(--sky-100); color:var(--sky-d)}
+.btn.block{display:flex; width:100%; margin:8px 0}
+.btn.tiny{min-height:34px; padding:6px 14px; font-size:12.5px; border-radius:var(--r-btn-sm)}
+
+/* —— 心情 —— */
+.mood-title{font-size:13px; color:var(--primary-deep); font-weight:600; margin-bottom:10px; letter-spacing:.5px}
+.mood-row{display:flex; gap:10px; justify-content:space-between}
+.mood-btn{flex:1; font-size:24px; border:1px solid var(--line); background:var(--surface-2); border-radius:14px; padding:10px 0; cursor:pointer; transition:.18s ease-out}
+.mood-btn.active{background:var(--primary); border-color:var(--primary); transform:scale(1.06); box-shadow:0 4px 10px rgba(78,154,108,.3), inset 0 0 0 2px rgba(255,255,255,.55)}
+.mood-note-input{margin-top:12px; width:100%; border:1px solid var(--line); border-radius:var(--r-input); padding:10px 12px; font-size:13px; outline:none; background:var(--surface-2); color:var(--text)}
+.mood-note-input:focus{border-color:var(--primary-soft); background:var(--surface); box-shadow:0 0 0 3px rgba(156,199,174,.25)}
+
+/* —— 导航线条图标（绿色·国风线条） —— */
+.nav-btn svg{width:22px; height:22px; display:block}
+.mood-btn svg{width:26px; height:26px; display:block; margin:0 auto}
+
+/* —— 任务行 —— */
+.task-row{display:flex; align-items:center; gap:12px; padding:10px 2px; border-bottom:1px solid var(--line)}
+.task-row:last-child{border-bottom:none}
+.task-title{flex:1; font-size:15px; color:var(--text)}
+.task-title.struck{text-decoration:line-through; color:var(--muted)}
+.check{width:26px; height:26px; flex:none; border-radius:50%; border:2px solid var(--mist); background:transparent; color:#fff; font-size:14px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.18s ease-out}
+.check.done{background:var(--primary); border-color:var(--primary)}
+.check:active{transform:scale(.9)}
+.task-edit{border:none; background:none; color:var(--muted); font-size:16px; cursor:pointer; padding:0 4px}
+.task-meta{font-size:12px; color:var(--muted); padding:0 2px 6px 38px; letter-spacing:.5px}
+
+/* —— 灵感 —— */
+.ref-card{border-left:3px solid var(--blossom)}
+.ref-card .ref-top{display:flex; justify-content:space-between; align-items:center; margin-bottom:6px}
+.ref-date{font-size:12px; color:var(--muted)}
+.ref-title{font-family:var(--font-serif); font-weight:600; margin-bottom:4px; color:var(--ink); font-size:15px}
+.ref-content{font-size:15px; white-space:pre-wrap; color:var(--text)}
+
+/* —— 标签 / Chips（§4.2：胶囊 r999 / 高 26px / 12px / 字重 600）—— */
+.chip{height:26px; display:inline-flex; align-items:center; padding:0 10px; border-radius:var(--r-pill); font-size:12px; font-weight:600; letter-spacing:.5px; white-space:nowrap}
+.chip.blossom{background:var(--blossom-100); color:var(--blossom-d)}
+
+/* —— 底部导航"+"按钮 —— */
+/* 仍在底栏内、静止不上抬（用户决定）；形态按方案改为圆角方形并放大到 44px */
+/* margin-top:-8px = (44-22)/2，使方形中心与旁边 22px 图标的光学中心同轴 */
+.nav-btn.add-btn{align-self:flex-start}
+.nav-btn.add-btn span:first-child{
+  display:flex; align-items:center; justify-content:center;
+  width:44px; height:44px; border-radius:15px;
+  margin-top:-8px;
+  background:var(--primary); color:#fff; font-size:16px; line-height:1;
+  box-shadow:0 5px 14px rgba(78,154,108,.35);
+  transform:translateY(0); filter:none;
+  transition:transform .18s ease-out, box-shadow .18s ease-out;
+}
+/* 十字用 SVG 绘制：不受系统字体差异影响，笔画粗细与描边可控 */
+.nav-btn.add-btn span:first-child svg{width:20px; height:20px; display:block}
+.nav-btn.add-btn:active span:first-child{
+  transform:translateY(-7px) scale(1.05);
+  box-shadow:0 9px 20px rgba(78,154,108,.42);
+}
+#app-title{cursor:pointer}
+
+/* —— 底部导航 —— */
+.bottom-nav{
+  position:fixed; bottom:0; left:0; right:0; z-index:15;
+  display:flex; justify-content:space-around; align-items:center;
+  background:linear-gradient(180deg,rgba(252,248,242,.9),var(--surface));
+  backdrop-filter:saturate(140%) blur(8px);
+  border-top:1px solid var(--line);
+  padding:14px 0 calc(8px + env(safe-area-inset-bottom)); max-width:520px; margin:0 auto;
+}
+.nav-btn{border:none; background:none; display:flex; flex-direction:column; align-items:center; gap:2px; font-size:12px; color:var(--faint); cursor:pointer; padding:6px 10px; min-height:var(--tap); justify-content:center}
+/* 统一 28px 图标槽位：所有导航图标基线一致，小字对齐 */
+.nav-btn span:first-child{font-size:19px; filter:grayscale(.2); height:28px; display:flex; align-items:center; justify-content:center}
+/* 选中：Green 700 + 小字加粗 */
+.nav-btn.active{color:var(--primary-deep); font-weight:600}
+.nav-btn.active:not(.add-btn) span:first-child{transform:translateY(-1px); filter:none}
+
+/* —— 弹层（底部抽屉） —— */
+.modal-overlay{position:fixed; inset:0; background:rgba(46,55,68,.42); display:flex; align-items:flex-end; justify-content:center; z-index:50; padding:0}
+.modal{background:var(--surface); width:100%; max-width:520px; border-radius:22px 22px 0 0; padding:22px 18px calc(22px + env(safe-area-inset-bottom)); animation:slideUp .18s ease-out; box-shadow:0 -8px 30px rgba(46,55,68,.12); position:relative}
+.modal::before{content:""; position:absolute; top:10px; left:50%; transform:translateX(-50%); width:38px; height:4px; border-radius:4px; background:var(--line)}
+.modal.wide{max-height:85vh; overflow:auto}
+@keyframes slideUp{from{transform:translateY(40px);opacity:.6}to{transform:translateY(0);opacity:1}}
+.modal-title{font-family:var(--font-serif); margin:6px 0 16px; font-size:20px; color:var(--ink); letter-spacing:1px}
+.qa-input, .qa-select, .qa-date, .qa-textarea{width:100%; border:1px solid var(--line); border-radius:var(--r-input); padding:12px 13px; font-size:15px; outline:none; margin-bottom:12px; font-family:inherit; background:var(--surface-2); color:var(--text)}
+.qa-input:focus, .qa-select:focus, .qa-date:focus, .qa-textarea:focus{border-color:var(--primary); background:var(--surface)}
+.qa-textarea{min-height:120px; resize:vertical}
+.qa-tabs{display:flex; gap:8px; margin-bottom:14px}
+.qa-tab{flex:1; border:1px solid var(--line); background:var(--surface-2); border-radius:var(--r-btn); padding:10px 0; font-size:15px; color:var(--text); cursor:pointer; transition:.18s ease-out}
+/* 分段控件选中：Green 600 白字圆角块 */
+.qa-tab.active{background:var(--primary-d); color:#fff; border-color:var(--primary-d)}
+.qa-field{margin-bottom:12px}
+.qa-field label{display:block; font-size:13px; color:var(--muted); margin-bottom:6px; letter-spacing:.5px}
+.qa-weekdays{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px}
+.qa-weekdays.hidden{display:none}
+.wd-label{display:flex; align-items:center; gap:4px; font-size:14px; background:var(--surface-2); padding:7px 11px; border-radius:var(--r-btn-sm); border:1px solid var(--line)}
+.qa-hint{font-size:12px; color:var(--wood-d); margin-top:-6px; margin-bottom:8px; letter-spacing:.5px}
+.qa-actions{display:flex; gap:10px; margin-top:8px}
+.qa-actions .btn{flex:1}
+/* 编辑弹层内的删除入口：独立成行 + 上方分隔线，与「取消/保存」拉开距离防误触 */
+.qa-del-row{margin-top:16px; padding-top:14px; border-top:1px solid var(--line)}
+.qa-del-row .btn{margin:0}
+
+/* —— 日历（本轮按用户决定保持现状，不随方案改动）—— */
+.cal-header{display:flex; align-items:center; justify-content:space-between; padding:8px 4px 14px}
+.cal-title{font-family:var(--font-serif); font-size:20px; font-weight:600; color:var(--ink); letter-spacing:2px}
+.cal-nav{width:40px; height:40px; border:none; background:var(--surface-2); border-radius:12px; font-size:20px; cursor:pointer; color:var(--text)}
+.cal-grid{display:grid; grid-template-columns:repeat(7,1fr); gap:5px; background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:12px 8px; box-shadow:var(--shadow)}
+.cal-weekday{text-align:center; font-size:12px; color:var(--muted); padding-bottom:6px; letter-spacing:1px}
+.cal-cell{border-radius:12px; aspect-ratio:1/1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; cursor:pointer; background:var(--surface-2); transition:.15s ease-out}
+.cal-cell:hover{background:#E3EFE7}
+.cal-cell.out{opacity:.38}
+.cal-cell.today{background:#FFFFFF; outline:1.5px solid var(--primary)}
+.cal-num{font-size:15px; font-weight:600; color:var(--ink)}
+.cal-dots{display:flex; gap:3px; align-items:center; min-height:10px}
+.dot{width:6px; height:6px; border-radius:50%; background:var(--mist)}
+/* 已完成：用对钩代替深绿圆点——形状差异比色相差异更易辨识（6px 圆点下两绿难分） */
+.cal-tick{display:inline-flex; align-items:center; justify-content:center; width:10px; height:10px; font-size:11px; line-height:1; font-weight:700; color:var(--primary-deep)}
+.dot.partial{background:var(--primary)}
+.dot.ref{background:var(--blossom)}
+.dot.mood{background:var(--amber)}
+.cal-legend{display:flex; flex-wrap:wrap; gap:14px; justify-content:center; padding:14px 4px; font-size:12px; color:var(--muted)}
+.mood-detail{display:flex; align-items:center; gap:8px}
+.mood-emoji{font-size:20px; line-height:1}
+.mood-detail-label{font-weight:600; color:var(--ink); font-size:15px}
+.mood-detail-note{color:var(--muted); font-size:13px}
+.cal-legend span{display:flex; align-items:center; gap:5px}
+.cal-legend .dot{position:static}
+
+/* —— 日期详情 —— */
+.day-body{padding:4px 2px}
+.day-section-title{font-size:13px; font-weight:600; color:var(--muted); margin:16px 0 6px; letter-spacing:.5px}
+.ref-mini{font-size:15px; color:var(--text); background:var(--surface-2); border-radius:var(--r-btn-sm); padding:9px 11px; margin-bottom:6px}
+.set-row{display:flex; gap:10px}
+.set-row .btn{flex:1}
+.about .muted{color:var(--muted); font-size:13px; margin-top:6px}
+.muted{color:var(--muted)}
+
+/* 危险区卡片：极浅砖红描边提示风险但不刺眼 */
+.danger-zone{border-color:var(--danger-line)}
+
+/* —— 到期提醒横幅 —— */
+.reminder-banner{background:linear-gradient(135deg,#FBF4E6,#F7EEDB); border:1px solid #F0E2C4; border-left:4px solid var(--amber); border-radius:var(--r-card); padding:14px 16px; margin:14px 0; box-shadow:var(--shadow)}
+.reminder-head{display:flex; align-items:center; gap:7px; font-family:var(--font-serif); font-size:15px; font-weight:600; color:var(--amber-d); margin-bottom:4px; letter-spacing:1px}
+/* 提醒图标：叶形轮廓，替代机械铃铛 */
+.reminder-ico{width:18px; height:18px; flex:none; display:inline-flex; color:var(--amber-d)}
+.reminder-ico svg{width:18px; height:18px; display:block}
+.reminder-tip{font-size:12px; color:var(--muted); margin:4px 0 2px}
+
+/* 逾期任务行 */
+.overdue-row{box-shadow:inset 3px 0 0 var(--vermilion); border-radius:var(--r-btn-sm); background:var(--danger-bg)}
+
+/* —— 动效偏好 —— */
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important; transition:none !important}
+}
+</style>
+<style id="__dm_no_drag_style__">* { -webkit-user-drag: none !important; }</style><style id="__dm_bindable_badge_style__">[data-sp-bindable="database"]{outline:1px dashed #0088ff;outline-offset:2px;border-radius:4px;}[data-sp-bindable="database"] *{pointer-events:none !important;transition:none !important;animation:none !important;}[data-sp-bindable="database"]{transition:none !important;animation:none !important;}</style></head>
+<body data-page-node-id="kbQWZn6EygoDImkLUcHG5A" style="">
+
+  <header class="app-header" data-page-node-id="j97qdi0ZkLisKqhVhJq9Ds">
+    <h1 id="app-title" data-page-node-id="08aGGtMIbNxmS8wlMHpP6C">灵感记录</h1>
+    <p id="app-sub" data-page-node-id="Dn87LbGAx181GLtAGYL2wN">记录任务 · 心情 · 灵感</p>
+    <button id="settings-gear" class="header-gear" aria-label="设置" aria-haspopup="dialog" data-page-node-id="pjFQ70L2nI79GYKzXZmIS1">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" data-page-node-id="IXOjcpDWQsuIhhe0dCamfb" style=""><path d="M4 7h16M4 12h16M4 17h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" data-page-node-id="hElvPbs8Fgl5gFo1QlnVa4"/></svg>
+    </button>
+  </header>
+
+  <main id="view" class="view"></main>
+
+  <!-- 设置：右侧滑出抽屉 -->
+  <div id="drawer-overlay" class="drawer-overlay" hidden></div>
+  <aside id="settings-drawer" class="drawer" role="dialog" aria-modal="true" aria-label="设置" aria-hidden="true">
+    <div class="drawer-head">
+      <span class="drawer-title">设置</span>
+      <button class="drawer-close" type="button" aria-label="关闭设置">✕</button>
+    </div>
+    <div id="settings-drawer-body" class="drawer-body"></div>
+  </aside>
+
+  <nav class="bottom-nav">
+    <button class="nav-btn add-btn" data-action="add" aria-label="快速记录"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c-.3-4.4 1.6-8.6 5-11.2 2.8-2.2 6.2-2.8 9.8-2.2.5 3.6-.1 7-2.2 9.8C14.9 19.4 10.6 20.3 5 19Z" data-page-node-id="6VVJIZHIWqJXZPtAFmumVF"/><path d="M6.6 17.4 19.8 5.1" data-page-node-id="SV0nH81xYkKuMojfNhpEsY"/><path d="M15.2 4.6c1.6-1.4 3.8-1.9 5.3-1.5-.4 1.6-1.1 3.7-2.7 5" data-page-node-id="7QLwRHRHHTiwVvL9UUMDJ5"/></svg></span></button>
+    <button class="nav-btn" data-view="calendar"><span class="nav-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-page-node-id="eQVkcbISge0l1aYEf97pe3"><rect x="4.5" y="5.5" width="15" height="14" rx="2.5" fill="#9CC7AE" fill-opacity="0.4" data-page-node-id="n9CNt2KyBPwF60sS9mqTfD"/><path d="M8.5 5.5V3.5" data-page-node-id="daerJgy5mDvfkkqx53LOI0"/><path d="M15.5 5.5V3.5" data-page-node-id="reT7GUjj47tgXUCvUBCvQw"/><path d="M4.5 9.2h15" data-page-node-id="i5fgrS6u8F1Et3634CprWL"/><path d="M9.3 15.2c1 1.4 4.4 1.4 5.4 0" data-page-node-id="U9iA2XsMe0mZmnJhyhoLsY"/></svg></span><span>日历</span></button>
+    <button class="nav-btn" data-view="reflections"><span class="nav-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-page-node-id="ka1JKvhamIGORdxJy5heDS"><path d="M12 14c0-3-2.5-4-4.5-4C7.5 6.5 9.5 4 12 4s4.5 2.5 4.5 6c-2 0-4.5 1-4.5 4z" fill="#9CC7AE" fill-opacity="0.4" data-page-node-id="lxi6wFfR9Blc1qD9UQ1eDi"/><path d="M12 21v-7" data-page-node-id="2HV8tZ3rOiNSD0Rc6aIb1N"/><path d="M9 21h6" data-page-node-id="64grXxu0yxFMivZhDhRMIf"/></svg></span><span data-page-node-id="WB52xf8giriNLGcjgh9q8Y">灵感</span></button>
+  </nav>
+
+  
+
+<script>// === js/dateutil.js ===
+// dateutil.js - 本地日期工具。所有日期以 'YYYY-MM-DD' 字符串表示（本地时区）
+function pad(n) { return String(n).padStart(2, '0'); }
+
+function format(date) {
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+}
+
+function parse(str) {
+  const [y, m, d] = str.split('-').map(Number);
+  return new Date(y, m - 1, d);
+}
+
+function todayStr() { return format(new Date()); }
+
+function addDays(str, n) {
+  const d = parse(str);
+  d.setDate(d.getDate() + n);
+  return format(d);
+}
+
+function weekday(str) { return parse(str).getDay(); } // 0=周日..6=周六
+
+function isWorkday(str) {
+  const w = weekday(str);
+  return w >= 1 && w <= 5;
+}
+
+function weekdayName(str) {
+  const names = ['日', '一', '二', '三', '四', '五', '六'];
+  return '周' + names[weekday(str)];
+}
+
+function formatCN(str) {
+  const d = parse(str);
+  return `${d.getMonth() + 1}月${d.getDate()}日 ${weekdayName(str)}`;
+}
+
+// 生成某月的 6x7 网格（42 个 'YYYY-MM-DD'，含前后补位）
+function monthMatrix(year, month) {
+  const first = new Date(year, month - 1, 1);
+  const startW = first.getDay();
+  const start = new Date(year, month - 1, 1 - startW);
+  const cells = [];
+  for (let i = 0; i < 42; i++) {
+    const d = new Date(start);
+    d.setDate(start.getDate() + i);
+    cells.push(format(d));
+  }
+  return cells;
+}
+
+
+// === js/db.js ===
+// db.js - 原生 IndexedDB 的 Promise 封装，并带 localStorage 兜底
+// 兜底原因：在受限 / 沙箱 origin（opaque origin）下 IndexedDB 不可用，
+// 此时自动降级到 localStorage，保证应用仍可正常记录与交互。
+const DB_NAME = 'inspire-db';
+const DB_VERSION = 1;
+let dbPromise = null;
+let mode = (typeof indexedDB !== 'undefined') ? 'idb' : 'local';
+
+// ---- localStorage 兜底实现 ----
+const LS_PREFIX = 'inspire_';
+function lsRead(name) { try { return JSON.parse(localStorage.getItem(LS_PREFIX + name) || '[]'); } catch { return []; } }
+function lsWrite(name, arr) { try { localStorage.setItem(LS_PREFIX + name, JSON.stringify(arr)); } catch { /* 隐私模式等，静默 */ } }
+function lsGetAll(name) { return lsRead(name); }
+function lsGet(name, key) { return lsRead(name).find(r => r && r.id === key) || undefined; }
+function lsPut(name, value) { const arr = lsRead(name); const i = arr.findIndex(r => r && r.id === value.id); if (i < 0) arr.push(value); else arr[i] = value; lsWrite(name, arr); return value; }
+function lsDel(name, key) { lsWrite(name, lsRead(name).filter(r => !(r && r.id === key))); }
+function lsClear(name) { lsWrite(name, []); }
+function lsBulk(name, values) { const arr = lsRead(name); values.forEach(v => { const i = arr.findIndex(r => r && r.id === v.id); if (i < 0) arr.push(v); else arr[i] = v; }); lsWrite(name, arr); }
+
+function openDB() {
+  if (dbPromise) return dbPromise;
+  dbPromise = new Promise((resolve) => {
+    if (typeof indexedDB === 'undefined') { mode = 'local'; resolve({ __local: true }); return; }
+    const req = indexedDB.open(DB_NAME, DB_VERSION);
+    req.onupgradeneeded = () => {
+      const db = req.result;
+      const stores = {
+        tasks: ['byDate', 'byType'],
+        completions: [['byTaskDate'], 'byDate'],
+        moods: ['byDate'],
+        reflections: ['byDate']
+      };
+      for (const name in stores) {
+        if (!db.objectStoreNames.contains(name)) {
+          const s = db.createObjectStore(name, { keyPath: 'id' });
+          stores[name].forEach(idx => { if (Array.isArray(idx)) s.createIndex(idx[0], idx); else s.createIndex(idx, idx); });
+        }
+      }
+    };
+    req.onsuccess = () => { mode = 'idb'; resolve(req.result); };
+    req.onerror = () => { mode = 'local'; resolve({ __local: true }); };
+  });
+  return dbPromise;
+}
+
+function getStore(db, name, m) { return db.transaction(name, m).objectStore(name); }
+function reqAsync(request) {
+  return new Promise((resolve, reject) => {
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error);
+  });
+}
+
+async function getAll(name) { await openDB(); if (mode === 'local') return lsGetAll(name); return reqAsync(getStore(await openDB(), name, 'readonly').getAll()); }
+async function get(name, key) { await openDB(); if (mode === 'local') return lsGet(name, key); return reqAsync(getStore(await openDB(), name, 'readonly').get(key)); }
+async function put(name, value) { await openDB(); if (mode === 'local') return lsPut(name, value); return reqAsync(getStore(await openDB(), name, 'readwrite').put(value)); }
+async function del(name, key) { await openDB(); if (mode === 'local') return lsDel(name, key); return reqAsync(getStore(await openDB(), name, 'readwrite').delete(key)); }
+async function clearStore(name) { await openDB(); if (mode === 'local') return lsClear(name); return reqAsync(getStore(await openDB(), name, 'readwrite').clear()); }
+async function bulkPut(name, values) { await openDB(); if (mode === 'local') return lsBulk(name, values); const db = await openDB(); const t = db.transaction(name, 'readwrite'); const os = t.objectStore(name); values.forEach(v => os.put(v)); return new Promise((resolve, reject) => { t.oncomplete = () => resolve(); t.onerror = () => reject(t.error); }); }
+function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 8); }
+
+
+// === js/store.js ===
+// store.js - 高层数据读写
+
+
+
+
+async function listTasks() { return (await getAll('tasks')) || []; }
+async function addTask(partial) {
+  const task = Object.assign({ id: uid(), createdAt: new Date().toISOString(), order: Date.now() }, partial);
+  await put('tasks', task);
+  return task;
+}
+async function updateTask(task) { await put('tasks', task); return task; }
+async function deleteTask(id) {
+  await del('tasks', id);
+  const comps = await listCompletionsForTask(id);
+  for (const c of comps) await del('completions', c.id);
+}
+async function toggleTaskDone(task) {
+  task.done = !task.done;
+  task.doneAt = task.done ? new Date().toISOString() : null;
+  await put('tasks', task);
+  return task;
+}
+
+// ---- 完成记录（循环任务按 任务×日期）----
+async function getCompletion(taskId, dateStr) { return get('completions', `${taskId}__${dateStr}`); }
+async function setCompletion(taskId, dateStr, done) {
+  const id = `${taskId}__${dateStr}`;
+  const rec = (await get('completions', id)) || { id, taskId, date: dateStr };
+  rec.done = done;
+  rec.doneAt = done ? new Date().toISOString() : null;
+  await put('completions', rec);
+  return rec;
+}
+async function listCompletionsForTask(taskId) { return (await getAll('completions')).filter(c => c.taskId === taskId); }
+async function allCompletions() { return (await getAll('completions')) || []; }
+
+// ---- 心情 ----
+async function listMoods() { return (await getAll('moods')) || []; }
+async function getMood(dateStr) { return get('moods', `m_${dateStr}`); }
+async function setMood(dateStr, score, note) {
+  const rec = { id: `m_${dateStr}`, date: dateStr, score: score || 0, note: note || '' };
+  await put('moods', rec);
+  return rec;
+}
+
+// ---- 灵感 ----
+async function listReflections() {
+  const all = await getAll('reflections') || [];
+  return all.sort((a, b) => (b.date || '').localeCompare(a.date || '') || (b.createdAt || '').localeCompare(a.createdAt || ''));
+}
+async function addReflection(partial) {
+  const ref = Object.assign({ id: uid(), createdAt: new Date().toISOString() }, partial);
+  await put('reflections', ref);
+  return ref;
+}
+async function updateReflection(ref) { await put('reflections', ref); return ref; }
+async function deleteReflection(id) { await del('reflections', id); }
+
+// ---- 连续完成天数（streak）----
+async function streak(task) {
+  let count = 0;
+  let d = todayStr();
+  for (let i = 0; i < 400; i++) {
+    if (!appliesOn(task, d)) { d = addDays(d, -1); continue; }
+    const c = await getCompletion(task.id, d);
+    if (c && c.done) { count++; d = addDays(d, -1); } else break;
+  }
+  return count;
+}
+
+// ---- 导出 / 导入 ----
+async function exportData() {
+  const [tasks, completions, moods, reflections] = await Promise.all([
+    getAll('tasks'), getAll('completions'), getAll('moods'), getAll('reflections')
+  ]);
+  return { app: 'inspire-log', version: 1, exportedAt: new Date().toISOString(), tasks, completions, moods, reflections };
+}
+async function importData(data) {
+  if (!data || !data.tasks) throw new Error('无效的备份文件');
+  await Promise.all([clearStore('tasks'), clearStore('completions'), clearStore('moods'), clearStore('reflections')]);
+  await bulkPut('tasks', data.tasks);
+  if (data.completions) await bulkPut('completions', data.completions);
+  if (data.moods) await bulkPut('moods', data.moods);
+  if (data.reflections) await bulkPut('reflections', data.reflections);
+}
+async function wipeAll() {
+  await Promise.all([clearStore('tasks'), clearStore('completions'), clearStore('moods'), clearStore('reflections')]);
+}
+;const store = { listTasks, addTask, updateTask, deleteTask, toggleTaskDone, getCompletion, setCompletion, listCompletionsForTask, allCompletions, listMoods, getMood, setMood, listReflections, addReflection, updateReflection, deleteReflection, streak, exportData, importData, wipeAll };
+
+
+// === js/dom.js ===
+// dom.js - 极简 DOM 构建助手
+function el(tag, attrs = {}, children = []) {
+  const e = document.createElement(tag);
+  for (const k in attrs) {
+    const v = attrs[k];
+    if (v == null) continue;
+    if (k === 'class') e.className = v;
+    else if (k === 'html') e.innerHTML = v;
+    else if (k === 'value' && (tag === 'input' || tag === 'textarea')) e.value = v;
+    else if (k === 'dataset') Object.assign(e.dataset, v);
+    else if (k.startsWith('on') && typeof v === 'function') e.addEventListener(k.slice(2).toLowerCase(), v);
+    else e.setAttribute(k, v);
+  }
+  for (const c of [].concat(children)) {
+    if (c == null || c === false) continue;
+    e.appendChild(typeof c === 'string' || typeof c === 'number' ? document.createTextNode(String(c)) : c);
+  }
+  return e;
+}
+
+function clear(node) { node.innerHTML = ''; return node; }
+
+
+// === js/recurring.js ===
+// recurring.js - 循环任务规则计算
+
+
+// task.pattern: 'daily' | 'workday' | 'custom'
+// task.customDays: getDay 值数组 (0=周日..6=周六)
+// task.startDate / task.endDate: 'YYYY-MM-DD' 可选边界
+function appliesOn(task, dateStr) {
+  if (task.type !== 'recurring') return false;
+  if (task.startDate && dateStr < task.startDate) return false;
+  if (task.endDate && dateStr > task.endDate) return false;
+  if (task.pattern === 'daily') return true;
+  if (task.pattern === 'workday') return isWorkday(dateStr);
+  if (task.pattern === 'custom') {
+    return Array.isArray(task.customDays) && task.customDays.includes(weekday(dateStr));
+  }
+  return false;
+}
+
+const PATTERN_LABEL = { daily: '每日', workday: '工作日', custom: '自定义' };
+
+// 把 customDays(0=周日..6=周六) 转成中文标签
+function customDaysLabel(days) {
+  const names = ['日', '一', '二', '三', '四', '五', '六'];
+  if (!Array.isArray(days) || !days.length) return '';
+  return '每周' + days.slice().sort().map(d => names[d]).join('、');
+}
+
+
+// === js/reminder.js ===
+// reminder.js - 定时任务到期提醒（本地优先 PWA 方案）
+// 说明：本地优先应用无法在完全关闭后做后台推送。提醒在「应用打开当天」触发：
+// 到期或逾期的定时任务会弹出系统通知（若已授权），并始终在「今日」顶部以横幅呈现。
+
+
+
+function notificationsSupported() {
+  return typeof window !== 'undefined' && 'Notification' in window;
+}
+function notificationPermission() {
+  return notificationsSupported() ? Notification.permission : 'unsupported';
+}
+
+async function requestNotificationPermission() {
+  if (!notificationsSupported()) return 'unsupported';
+  if (Notification.permission !== 'default') return Notification.permission;
+  try { return await Notification.requestPermission(); } catch { return 'denied'; }
+}
+
+// 今天到期或已逾期的未完成任务（仅定时/某日任务）
+async function dueDatedTasks() {
+  const today = todayStr();
+  const tasks = await store.listTasks();
+  return tasks
+    .filter(t => t.type === 'dated' && t.targetDate && t.targetDate <= today && !t.done)
+    .sort((a, b) => (a.targetDate || '').localeCompare(b.targetDate || ''));
+}
+
+async function showNotification(title, body, tag) {
+  try {
+    if ('serviceWorker' in navigator) {
+      const reg = await navigator.serviceWorker.ready;
+      if (reg && 'showNotification' in reg) {
+        await reg.showNotification(title, {
+          body, tag,
+          icon: './assets/icons/icon-192.png',
+          badge: './assets/icons/icon-192.png'
+        });
+        return;
+      }
+    }
+    if (notificationsSupported() && Notification.permission === 'granted') {
+      new Notification(title, { body, tag, icon: './assets/icons/icon-192.png' });
+    }
+  } catch { /* 通知不可用时静默忽略 */ }
+}
+
+// 触发到期通知；同一任务同一天每个会话只提醒一次（避免反复打扰）
+async function fireDueNotifications() {
+  if (!notificationsSupported() || Notification.permission !== 'granted') return [];
+  const today = todayStr();
+  const due = await dueDatedTasks();
+  for (const t of due) {
+    const key = 'remind_' + t.id + '_' + t.targetDate;
+    if (sessionStorage.getItem(key)) continue;
+    sessionStorage.setItem(key, '1');
+    const when = t.targetDate < today ? '（已逾期）' : '（今天到期）';
+    await showNotification('⏰ 任务到期提醒', t.title + when, 'due_' + t.id);
+  }
+  return due;
+}
+
+// 提醒引擎：应用打开时、周期性、标签页重新可见时检查
+function startReminderEngine() {
+  fireDueNotifications();
+  const interval = setInterval(() => fireDueNotifications(), 60 * 1000);
+  const onVisible = () => { if (document.visibilityState === 'visible') fireDueNotifications(); };
+  document.addEventListener('visibilitychange', onVisible);
+  return () => {
+    clearInterval(interval);
+    document.removeEventListener('visibilitychange', onVisible);
+  };
+}
+
+
+// === js/components/mood.js ===
+// components/mood.js - 每日心情选择器（emoji + 绿系容器，按视觉设计方案 v1.0）
+
+
+
+const LABELS = ['很差', '不佳', '一般', '不错', '很好'];
+// 索引 = 评分-1：很差 / 不佳 / 一般 / 不错 / 很好
+const EMOJIS = ['😣', '🙁', '😐', '🙂', '😄'];
+
+function moodEmoji(score) {
+  const i = Number(score) - 1;
+  return (i >= 0 && i < EMOJIS.length) ? EMOJIS[i] : '';
+}
+function moodLabel(score) {
+  const i = Number(score) - 1;
+  return (i >= 0 && i < LABELS.length) ? LABELS[i] : '';
+}
+
+async function renderMood(container, dateStr, onChange) {
+  container.innerHTML = '';
+  const mood = await store.getMood(dateStr);
+  const wrap = el('div', { class: 'mood' });
+  wrap.appendChild(el('div', { class: 'mood-title' }, ['今日心情']));
+  const row = el('div', { class: 'mood-row' });
+  // 从左到右展示：很好(5) → 不错(4) → 一般(3) → 不佳(2) → 很差(1)
+  for (let i = EMOJIS.length - 1; i >= 0; i--) {
+    const active = mood && mood.score === i + 1;
+    const btn = el('button', {
+      class: 'mood-btn' + (active ? ' active' : ''),
+      title: LABELS[i], 'aria-label': LABELS[i],
+      onclick: async () => { await store.setMood(dateStr, i + 1); await renderMood(container, dateStr, onChange); onChange && onChange(); }
+    });
+    btn.textContent = EMOJIS[i];
+    row.appendChild(btn);
+  }
+  wrap.appendChild(row);
+  const note = el('input', {
+    class: 'mood-note-input', placeholder: '写点心情备注（可选）', value: mood ? mood.note : ''
+  });
+  note.addEventListener('change', async () => { await store.setMood(dateStr, mood ? mood.score : 0, note.value); });
+  wrap.appendChild(note);
+  container.appendChild(wrap);
+}
+
+
+
+// === js/components/empty.js ===
+// components/empty.js - 统一空状态（§4.4 三要素）
+// 一个自然系小装饰 + 二级色短句 + 三级色行动建议；全应用同一构图，只换文案。
+
+
+function emptyState(decor, title, hint) {
+  return el('div', { class: 'empty' }, [
+    el('div', { class: 'empty-decor' }, [decor]),
+    el('div', { class: 'empty-title' }, [title]),
+    hint ? el('div', { class: 'empty-hint' }, [hint]) : null
+  ]);
+}
+
+
+// === js/components/quickadd.js ===
+// components/quickadd.js - 加号速记浮层（新增 / 编辑任务）
+
+
+
+
+const WEEK = ['日', '一', '二', '三', '四', '五', '六']; // 对应 getDay 0..6
+
+// 相对日期提示：今天 / 明天 / N 天后 / 已逾期 N 天
+function relativeHint(str) {
+  if (!str) return '';
+  const diff = Math.round((parse(str) - parse(todayStr())) / 86400000);
+  if (diff === 0) return '就是今天';
+  if (diff === 1) return '明天';
+  if (diff > 1) return diff + ' 天后';
+  if (diff === -1) return '昨天（已逾期）';
+  return '已逾期 ' + (-diff) + ' 天';
+}
+
+function openQuickAdd(onSaved, opts = {}) {
+  const isEdit = !!opts.task;
+  const t = opts.task || {};
+  let type = opts.type || t.type || 'short';
+
+  const overlay = el('div', { class: 'modal-overlay' });
+  const modal = el('div', { class: 'modal' });
+  const close = () => overlay.remove();
+
+  const title = el('h3', { class: 'modal-title' }, [isEdit ? '编辑任务' : '快速记录']);
+  const input = el('input', { class: 'qa-input', placeholder: '想记点什么…', value: t.title || '' });
+
+  const tabs = el('div', { class: 'qa-tabs' });
+  const dyn = el('div', { class: 'qa-dyn' });
+
+  function makeTab(key, label) {
+    return el('button', {
+      class: 'qa-tab' + (type === key ? ' active' : ''),
+      onclick: () => { type = key; tabs.querySelectorAll('.qa-tab').forEach(b => b.classList.toggle('active', b.textContent === label)); renderDyn(); }
+    }, [label]);
+  }
+  tabs.appendChild(makeTab('short', '今日'));
+  tabs.appendChild(makeTab('recurring', '循环'));
+  tabs.appendChild(makeTab('dated', '某日'));
+
+  function renderDyn() {
+    dyn.innerHTML = '';
+    if (type === 'recurring') {
+      const pat = el('div', { class: 'qa-field' }, [el('label', {}, ['循环方式'])]);
+      const sel = el('select', { class: 'qa-select' }, [
+        el('option', { value: 'daily' }, ['每日']),
+        el('option', { value: 'workday' }, ['仅工作日']),
+        el('option', { value: 'custom' }, ['自定义星期'])
+      ]);
+      sel.value = t.pattern || 'daily';
+      pat.appendChild(sel);
+      dyn.appendChild(pat);
+
+      const daysBox = el('div', { class: 'qa-weekdays' + (sel.value === 'custom' ? '' : ' hidden') });
+      const cur = Array.isArray(t.customDays) ? t.customDays : [];
+      WEEK.forEach((w, i) => {
+        const id = 'wd' + i;
+        const cb = el('input', { type: 'checkbox', id, value: i });
+        if (cur.includes(i)) cb.checked = true;
+        daysBox.appendChild(el('label', { class: 'wd-label' }, [cb, w]));
+      });
+      dyn.appendChild(daysBox);
+      sel.addEventListener('change', () => daysBox.classList.toggle('hidden', sel.value !== 'custom'));
+
+      const end = el('div', { class: 'qa-field' }, [
+        el('label', {}, ['结束日期（可选）']),
+        el('input', { type: 'date', class: 'qa-date', value: t.endDate || '' })
+      ]);
+      dyn.appendChild(end);
+      dyn._collect = () => ({
+        pattern: sel.value,
+        customDays: sel.value === 'custom' ? WEEK.map((_, i) => i).filter(i => {
+          const cb = daysBox.querySelector('#wd' + i); return cb && cb.checked;
+        }) : undefined,
+        endDate: end.querySelector('input').value || undefined
+      });
+    } else if (type === 'dated') {
+      const init = t.targetDate || addDays(todayStr(), 1);
+      const d = el('div', { class: 'qa-field' }, [
+        el('label', {}, ['定到这一天']),
+        el('input', { type: 'date', class: 'qa-date', value: init })
+      ]);
+      const hint = el('div', { class: 'qa-hint' }, [relativeHint(init)]);
+      d.querySelector('input').addEventListener('change', e => { hint.textContent = relativeHint(e.target.value); });
+      d.appendChild(hint);
+      dyn.appendChild(d);
+      dyn._collect = () => ({ targetDate: d.querySelector('input').value || addDays(todayStr(), 1) });
+    } else {
+      dyn._collect = () => ({});
+    }
+  }
+  renderDyn();
+
+  const actions = el('div', { class: 'qa-actions' }, [
+    el('button', { class: 'btn ghost', onclick: close }, ['取消']),
+    el('button', { class: 'btn primary', onclick: async () => {
+      const titleText = input.value.trim();
+      if (!titleText) { input.focus(); return; }
+      const extra = dyn._collect ? dyn._collect() : {};
+      if (isEdit) {
+        const updated = Object.assign({}, t, { title: titleText, type, note: t.note || '' }, extra);
+        if (type === 'short') updated.date = t.date || todayStr();
+        if (type === 'recurring') { updated.startDate = t.startDate || todayStr(); }
+        await store.updateTask(updated);
+      } else {
+        if (type === 'short') await store.addTask({ type: 'short', title: titleText, date: todayStr() });
+        else if (type === 'recurring') await store.addTask(Object.assign({ type: 'recurring', title: titleText, startDate: todayStr() }, extra));
+        else if (type === 'dated') await store.addTask(Object.assign({ type: 'dated', title: titleText }, extra));
+      }
+      close();
+      onSaved && onSaved();
+    } }, [isEdit ? '保存' : '记下'])
+  ]);
+
+  modal.appendChild(title);
+  modal.appendChild(input);
+  modal.appendChild(tabs);
+  modal.appendChild(dyn);
+  modal.appendChild(actions);
+  // 仅在编辑已有任务时提供删除入口；独立成行并与「取消/保存」拉开距离，避免误触
+  if (isEdit) {
+    modal.appendChild(el('div', { class: 'qa-del-row' }, [
+      el('button', { class: 'btn danger block', onclick: async () => {
+        if (!confirm('删除这条任务？')) return;
+        await store.deleteTask(t.id);
+        close();
+        onSaved && onSaved();
+      } }, ['删除任务'])
+    ]));
+  }
+  overlay.appendChild(modal);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+  document.body.appendChild(overlay);
+  input.focus();
+}
+
+
+// === js/views/today.js ===
+// views/today.js - 今日视图
+
+
+
+
+
+
+
+
+function taskRow(task, done, onToggle, onEdit) {
+  const check = el('button', {
+    class: 'check' + (done ? ' done' : ''),
+    onclick: onToggle
+  }, [done ? '✓' : '']);
+  const title = el('div', { class: 'task-title' + (done ? ' struck' : '') }, [task.title]);
+  const row = el('div', { class: 'task-row' }, [check, title]);
+  if (onEdit) row.appendChild(el('button', { class: 'task-edit', onclick: onEdit }, ['✎']));
+  return row;
+}
+
+async function renderToday(container, ctx) {
+  clear(container);
+  const date = todayStr();
+  const tasks = await store.listTasks();
+
+  const shortDue = tasks.filter(t => t.type === 'short' && t.date === date);
+  const datedDue = tasks.filter(t => t.type === 'dated' && t.targetDate && t.targetDate <= date);
+  const recurDue = tasks.filter(t => t.type === 'recurring' && appliesOn(t, date));
+
+  const refresh = ctx.refresh || (() => {});
+
+  // 顶部日期
+  container.appendChild(el('div', { class: 'date-hero' }, [
+    el('div', { class: 'date-hero-main' }, [formatCN(date)]),
+    el('div', { class: 'date-hero-sub' }, ['今天的灵感与计划'])
+  ]));
+
+  // 到期提醒横幅（仅未授权通知时提示开启；任务在下方「到期/逾期」卡片中可勾选）
+  const due = await dueDatedTasks();
+  if (due.length && notificationsSupported() && notificationPermission() !== 'granted') {
+    const banner = el('div', { class: 'reminder-banner' }, [
+      el('div', { class: 'reminder-head' }, [
+        el('span', { class: 'reminder-ico', html: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5.2 18.8C5.2 11.4 9.9 5.6 19.4 5c.5 9.5-5.4 14.2-14.2 13.8Z"/><path d="M5.2 18.8 14.9 9.1"/></svg>' }),
+        '有 ' + due.length + ' 条任务到期 / 逾期'
+      ]),
+      el('div', { class: 'reminder-tip' }, ['开启系统通知，应用打开当天会自动弹窗提醒；任务可在下方直接勾选完成。']),
+      el('button', { class: 'btn tiny primary', style: 'margin-top:8px', onclick: async () => {
+        const p = await requestNotificationPermission();
+        if (p === 'granted') await fireDueNotifications();
+        refresh();
+      } }, ['开启系统通知'])
+    ]);
+    container.appendChild(banner);
+  }
+
+  // 心情
+  const moodCard = el('div', { class: 'card' });
+  await renderMood(moodCard, date, () => {});
+  container.appendChild(moodCard);
+
+  // 短期任务
+  const shortCard = el('div', { class: 'card' });
+  shortCard.appendChild(el('div', { class: 'card-title' }, [
+    '今日待办 ',
+    el('span', { class: 'card-count' }, [`(${shortDue.filter(t => t.done).length}/${shortDue.length})`])
+  ]));
+  if (!shortDue.length) shortCard.appendChild(emptyState('🌿', '暂无待办', '记下一条试试'));
+  for (const t of shortDue) {
+    shortCard.appendChild(taskRow(t, t.done, async () => { await store.toggleTaskDone(t); refresh(); },
+      () => Promise.resolve().then(() => openQuickAdd(refresh, { task: t }))));
+  }
+  container.appendChild(shortCard);
+
+  // 循环任务
+  if (recurDue.length) {
+    const rCard = el('div', { class: 'card' });
+    rCard.appendChild(el('div', { class: 'card-title' }, ['循环任务']));
+    for (const t of recurDue) {
+      const comp = await store.getCompletion(t.id, date);
+      const done = !!(comp && comp.done);
+      rCard.appendChild(taskRow(t, done, async () => { await store.setCompletion(t.id, date, !done); refresh(); },
+        () => Promise.resolve().then(() => openQuickAdd(refresh, { task: t }))));
+      const meta = el('div', { class: 'task-meta' }, [PATTERN_LABEL[t.pattern] + (t.pattern === 'custom' ? '（' + customDaysLabel(t.customDays) + '）' : '')]);
+      rCard.appendChild(meta);
+    }
+    container.appendChild(rCard);
+  }
+
+  // 今天到期 / 逾期的未来定时任务（逾期未完成标红，均可直接勾选）
+  if (datedDue.length) {
+    const overCount = datedDue.filter(t => !t.done && t.targetDate < date).length;
+    const dCard = el('div', { class: 'card' });
+    dCard.appendChild(el('div', { class: 'card-title' }, [
+      '到期 / 逾期 ',
+      el('span', { class: 'card-count' }, ['(' + datedDue.filter(t => t.done).length + '/' + datedDue.length + (overCount ? '，' + overCount + ' 条逾期' : '') + ')'])
+    ]));
+    for (const t of datedDue) {
+      const row = taskRow(t, t.done, async () => { await store.toggleTaskDone(t); refresh(); },
+        () => Promise.resolve().then(() => openQuickAdd(refresh, { task: t })));
+      if (!t.done && t.targetDate < date) row.classList.add('overdue-row');
+      dCard.appendChild(row);
+    }
+    container.appendChild(dCard);
+  }
+}
+
+
+// === js/views/calendar.js ===
+// views/calendar.js - 日历总览 + 日期详情
+
+
+
+
+
+
+
+let viewY, viewM;
+
+async function openDayDetail(d, refresh) {
+  const overlay = el('div', { class: 'modal-overlay' });
+  const modal = el('div', { class: 'modal wide' });
+  const close = () => overlay.remove();
+  modal.appendChild(el('h3', { class: 'modal-title' }, [formatCN(d)]));
+  const body = el('div', { class: 'day-body' });
+  modal.appendChild(body);
+  modal.appendChild(el('div', { class: 'qa-actions' }, [el('button', { class: 'btn primary', onclick: close }, ['关闭'])]));
+  overlay.appendChild(modal);
+  overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+  document.body.appendChild(overlay);
+
+  async function paint() {
+    body.innerHTML = '';
+    const tasks = await store.listTasks();
+    const items = [];
+    for (const t of tasks) {
+      if (t.type === 'short' && t.date === d) items.push({ task: t, done: t.done, toggle: async () => store.toggleTaskDone(t) });
+      else if (t.type === 'dated' && t.targetDate === d) items.push({ task: t, done: t.done, toggle: async () => store.toggleTaskDone(t) });
+      else if (t.type === 'recurring' && appliesOn(t, d)) {
+        const c = await store.getCompletion(t.id, d); const done = !!(c && c.done);
+        items.push({ task: t, done, toggle: async () => store.setCompletion(t.id, d, !done) });
+      }
+    }
+    body.appendChild(el('div', { class: 'day-section-title' }, [
+      '计划 ',
+      el('span', { class: 'card-count' }, [`(${items.filter(i => i.done).length}/${items.length})`])
+    ]));
+    if (!items.length) body.appendChild(emptyState('🍃', '这一天没有计划', '添加一条试试'));
+    for (const it of items) {
+      const row = el('div', { class: 'task-row' }, [
+        el('button', { class: 'check' + (it.done ? ' done' : ''), onclick: async () => { await it.toggle(); await paint(); refresh(); } }, [it.done ? '✓' : '']),
+        el('div', { class: 'task-title' + (it.done ? ' struck' : '') }, [it.task.title]),
+        el('button', { class: 'task-edit', onclick: () => Promise.resolve().then(() => openQuickAdd(async () => { await paint(); refresh(); }, { task: it.task })) }, ['✎'])
+      ]);
+      body.appendChild(row);
+    }
+
+    const mood = await store.getMood(d);
+    body.appendChild(el('div', { class: 'day-section-title' }, ['心情']));
+    if (mood && mood.score) {
+      const mwrap = el('div', { class: 'mood-detail' });
+      mwrap.appendChild(el('span', { class: 'mood-emoji' }, [moodEmoji(mood.score)]));
+      mwrap.appendChild(el('span', { class: 'mood-detail-label' }, [moodLabel(mood.score)]));
+      if (mood.note) mwrap.appendChild(el('span', { class: 'mood-detail-note' }, [mood.note]));
+      body.appendChild(mwrap);
+    } else {
+      body.appendChild(el('div', { class: 'empty-note' }, ['未记录']));
+    }
+
+    const refs = (await store.listReflections()).filter(r => r.date === d);
+    body.appendChild(el('div', { class: 'day-section-title' }, [
+      '灵感 ',
+      el('span', { class: 'card-count' }, [`(${refs.length})`])
+    ]));
+    if (!refs.length) body.appendChild(el('div', { class: 'empty-note' }, ['无']));
+    for (const r of refs) body.appendChild(el('div', { class: 'ref-mini' }, [r.title ? el('b', {}, [r.title + '：']) : null, r.content]));
+  }
+  await paint();
+}
+
+async function renderCalendar(container, ctx) {
+  clear(container);
+  const refresh = ctx.refresh || (() => {});
+  const now = new Date();
+  if (!viewY) { viewY = now.getFullYear(); viewM = now.getMonth() + 1; }
+
+  const tasks = await store.listTasks();
+  const comps = await store.allCompletions();
+  const compMap = {}; comps.forEach(c => compMap[c.id] = c);
+  const moods = await store.listMoods();
+  const moodMap = {};
+  moods.forEach(m => { if (m && m.score) moodMap[m.date] = m.score; });
+  const refs = await store.listReflections();
+  const refSet = new Set(refs.map(r => r.date));
+
+  function itemsFor(day) {
+    const arr = [];
+    for (const t of tasks) {
+      if (t.type === 'short' && t.date === day) arr.push({ task: t, done: t.done });
+      else if (t.type === 'dated' && t.targetDate === day) arr.push({ task: t, done: t.done });
+      else if (t.type === 'recurring' && appliesOn(t, day)) {
+        const c = compMap[`${t.id}__${day}`]; arr.push({ task: t, done: !!(c && c.done) });
+      }
+    }
+    return arr;
+  }
+
+  container.appendChild(el('div', { class: 'cal-header' }, [
+    el('button', { class: 'cal-nav', onclick: () => { viewM--; if (viewM < 1) { viewM = 12; viewY--; } refresh(); } }, ['‹']),
+    el('div', { class: 'cal-title' }, [`${viewY}年${viewM}月`]),
+    el('button', { class: 'cal-nav', onclick: () => { viewM++; if (viewM > 12) { viewM = 1; viewY++; } refresh(); } }, ['›'])
+  ]));
+
+  const grid = el('div', { class: 'cal-grid' });
+  ['日', '一', '二', '三', '四', '五', '六'].forEach(w => grid.appendChild(el('div', { class: 'cal-weekday' }, [w])));
+  const cells = monthMatrix(viewY, viewM);
+  const today = todayStr();
+  for (const d of cells) {
+    const inMonth = parse(d).getMonth() + 1 === viewM;
+    const items = itemsFor(d);
+    const total = items.length;
+    const done = items.filter(i => i.done).length;
+    const cls = 'cal-cell' + (inMonth ? '' : ' out') + (d === today ? ' today' : '');
+    const dots = el('div', { class: 'cal-dots' });
+    if (total > 0) {
+      if (done === total) dots.appendChild(el('span', { class: 'cal-tick' }, ['✓']));
+      else dots.appendChild(el('span', { class: 'dot partial' }));
+    }
+    if (moodMap[d]) dots.appendChild(el('span', { class: 'dot mood' }));
+    if (refSet.has(d)) dots.appendChild(el('span', { class: 'dot ref' }));
+    grid.appendChild(el('div', { class: cls, onclick: () => openDayDetail(d, refresh) }, [el('div', { class: 'cal-num' }, [String(parse(d).getDate())]), dots]));
+  }
+  container.appendChild(grid);
+
+  container.appendChild(el('div', { class: 'cal-legend' }, [
+    el('span', {}, [el('span', { class: 'dot partial' }), ' 有任务']),
+    el('span', {}, [el('span', { class: 'cal-tick' }, ['✓']), ' 已完成']),
+    el('span', {}, [el('span', { class: 'dot mood' }), ' 有心情']),
+    el('span', {}, [el('span', { class: 'dot ref' }), ' 有灵感'])
+  ]));
+}
+
+
+// === js/views/reflections.js ===
+// views/reflections.js - 灵感
+
+
+
+
+
+function openReflectionEditor(onSaved, existing) {
+  const overlay = el('div', { class: 'modal-overlay' });
+  const modal = el('div', { class: 'modal' });
+  const close = () => overlay.remove();
+  const dateInput = el('input', { type: 'date', class: 'qa-date', value: existing ? existing.date : new Date().toISOString().slice(0, 10) });
+  const titleInput = el('input', { class: 'qa-input', placeholder: '标题（可选）', value: existing ? existing.title : '' });
+  const content = el('textarea', { class: 'qa-textarea', placeholder: '写下你的灵感…' }, [existing ? existing.content : '']);
+
+  modal.appendChild(el('h3', { class: 'modal-title' }, [existing ? '编辑灵感' : '写灵感']));
+  modal.appendChild(el('div', { class: 'qa-field' }, [el('label', {}, ['日期']), dateInput]));
+  modal.appendChild(titleInput);
+  modal.appendChild(content);
+  modal.appendChild(el('div', { class: 'qa-actions' }, [
+    el('button', { class: 'btn ghost', onclick: close }, ['取消']),
+    el('button', { class: 'btn primary', onclick: async () => {
+      const c = content.value.trim();
+      if (!c) { content.focus(); return; }
+      if (existing) { await store.updateReflection(Object.assign({}, existing, { date: dateInput.value, title: titleInput.value, content: c })); }
+      else { await store.addReflection({ date: dateInput.value, title: titleInput.value, content: c }); }
+      close(); onSaved && onSaved();
+    } }, [existing ? '保存' : '保存'])
+  ]));
+  overlay.appendChild(modal);
+  overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+  document.body.appendChild(overlay);
+  content.focus();
+}
+
+async function renderReflections(container, ctx) {
+  clear(container);
+  const refresh = ctx.refresh || (() => {});
+  const list = await store.listReflections();
+
+  container.appendChild(el('div', { class: 'date-hero' }, [
+    el('div', { class: 'date-hero-main' }, ['灵感记录']),
+    el('div', { class: 'date-hero-sub' }, ['记录思考，沉淀复利'])
+  ]));
+  container.appendChild(el('button', { class: 'btn primary block', onclick: () => openReflectionEditor(refresh) }, ['＋ 写一条灵感']));
+
+  if (!list.length) {
+    container.appendChild(emptyState('🌱', '还没有灵感', '把今天的想法记下来吧，哪怕只有一句话'));
+    return;
+  }
+  for (const r of list) {
+    const card = el('div', { class: 'card ref-card' }, [
+      el('div', { class: 'ref-top' }, [
+        el('span', { class: 'ref-date chip blossom' }, [formatCN(r.date)]),
+        el('button', { class: 'btn tiny danger', onclick: async () => { if (confirm('删除这条灵感？')) { await store.deleteReflection(r.id); refresh(); } } }, ['删除'])
+      ]),
+      r.title ? el('div', { class: 'ref-title' }, [r.title]) : null,
+      el('div', { class: 'ref-content' }, [r.content])
+    ]);
+    card.addEventListener('click', (e) => { if (e.target.tagName === 'BUTTON') return; openReflectionEditor(refresh, r); });
+    container.appendChild(card);
+  }
+}
+
+
+// === js/views/settings.js ===
+// views/settings.js - 设置：备份 / 清空 / 关于
+
+
+
+
+function permText() {
+  if (!notificationsSupported()) return '当前环境不支持系统通知，将以应用内横幅提醒。';
+  const p = notificationPermission();
+  return p === 'granted' ? '已开启系统通知 ✓' : p === 'denied' ? '通知已被拒绝，可在浏览器站点设置中重新开启' : '尚未开启系统通知';
+}
+
+async function renderSettings(container, ctx) {
+  clear(container);
+  const refresh = ctx.refresh || (() => {});
+
+  if (!(ctx && ctx.inDrawer)) {
+    container.appendChild(el('div', { class: 'date-hero' }, [
+      el('div', { class: 'date-hero-main' }, ['设置']),
+      el('div', { class: 'date-hero-sub' }, ['数据备份与关于'])
+    ]));
+  }
+
+  container.appendChild(el('div', { class: 'card' }, [
+    el('div', { class: 'card-title' }, ['数据备份']),
+    el('div', { class: 'set-row' }, [
+      el('button', { class: 'btn primary', onclick: async () => {
+        const data = await store.exportData();
+        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'inspire-backup-' + new Date().toISOString().slice(0, 10) + '.json';
+        a.click();
+        URL.revokeObjectURL(a.href);
+      } }, [
+        el('span', { html: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15.2V4.4"/><path d="M7.9 8.5 12 4.4l4.1 4.1"/><path d="M4.8 14.4v3.3a2 2 0 0 0 2 2h10.4a2 2 0 0 0 2-2v-3.3"/></svg>' }),
+        '导出 JSON'
+      ]),
+      el('label', { class: 'btn secondary' }, ['导入 JSON', el('input', {
+        type: 'file', accept: '.json', style: 'display:none', onchange: async (e) => {
+          const f = e.target.files[0]; if (!f) return;
+          try { const data = JSON.parse(await f.text()); await store.importData(data); alert('导入成功'); refresh(); }
+          catch (err) { alert('导入失败：' + err.message); }
+        }
+      })])
+    ])
+  ]));
+
+  container.appendChild(el('div', { class: 'card danger-zone' }, [
+    el('div', { class: 'card-title' }, ['危险区']),
+    el('button', { class: 'btn danger block', onclick: async () => {
+      if (confirm('确定清空全部数据？此操作不可恢复！')) { await store.wipeAll(); alert('已清空'); refresh(); }
+    } }, ['清空全部数据'])
+  ]));
+
+  container.appendChild(el('div', { class: 'card' }, [
+    el('div', { class: 'card-title' }, ['到期提醒']),
+    el('div', { class: 'set-row' }, [
+      el('span', { class: 'muted' }, [permText()]),
+      el('button', { class: 'btn info', onclick: async () => { await requestNotificationPermission(); refresh(); } }, ['授权/重试'])
+    ]),
+    el('div', { class: 'muted', style: 'margin-top:8px; font-size:12px' }, ['本地优先应用无法在完全关闭后后台推送。应用打开当天，到期与逾期任务会触发系统通知（若已授权），并在「今日」顶部以横幅提醒。'])
+  ]));
+
+  container.appendChild(el('div', { class: 'card about' }, [
+    el('div', { class: 'card-title' }, ['关于']),
+    el('div', {}, ['灵感记录 · 本地优先 PWA']),
+    el('div', { class: 'muted' }, ['所有数据仅保存在本机浏览器（IndexedDB），不会上传。建议定期导出 JSON 备份。'])
+  ]));
+}
+
+
+// === js/components/settingsDrawer.js ===
+// components/settingsDrawer.js - 设置右侧滑出抽屉
+
+
+function openSettingsDrawer() {
+  const drawer = document.getElementById('settings-drawer');
+  const overlay = document.getElementById('drawer-overlay');
+  if (!drawer || !overlay) return;
+  renderSettings(document.getElementById('settings-drawer-body'), {
+    inDrawer: true,
+    refresh: () => openSettingsDrawer()
+  });
+  drawer.classList.add('open');
+  drawer.setAttribute('aria-hidden', 'false');
+  overlay.classList.add('show');
+  overlay.hidden = false;
+}
+
+function closeSettingsDrawer() {
+  const drawer = document.getElementById('settings-drawer');
+  const overlay = document.getElementById('drawer-overlay');
+  if (!drawer || !overlay) return;
+  drawer.classList.remove('open');
+  drawer.setAttribute('aria-hidden', 'true');
+  overlay.classList.remove('show');
+  overlay.hidden = true;
+}
+
+function initSettingsDrawer() {
+  const drawer = document.getElementById('settings-drawer');
+  const overlay = document.getElementById('drawer-overlay');
+  if (!drawer || !overlay) return;
+  drawer.querySelector('.drawer-close').addEventListener('click', closeSettingsDrawer);
+  overlay.addEventListener('click', closeSettingsDrawer);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeSettingsDrawer(); });
+  document.getElementById('settings-gear').addEventListener('click', openSettingsDrawer);
+}
+
+
+// === js/app.js ===
+// app.js - 入口：路由、导航、FAB、Service Worker 注册
+
+
+
+
+
+
+
+const VIEWS = {
+  today: renderToday,
+  calendar: renderCalendar,
+  reflections: renderReflections
+};
+let current = 'today';
+
+async function navigate(name) {
+  current = name;
+  document.querySelectorAll('.nav-btn').forEach(b => {
+    const v = b.dataset.view || (b.dataset.action === 'add' ? 'today' : null);
+    b.classList.toggle('active', v === name);
+  });
+  const view = document.getElementById('view');
+  view.innerHTML = '<div class="loading">加载中…</div>';
+  await VIEWS[name](view, { refresh: () => navigate(current) });
+  window.scrollTo(0, 0);
+  // 页面切换动效：淡入上移 4px（先移除再强制回流，保证连续切换时动画能重新触发）
+  view.classList.remove('view-enter');
+  void view.offsetWidth;
+  view.classList.add('view-enter');
+}
+
+function initApp() {
+  document.querySelectorAll('.nav-btn').forEach(btn => btn.addEventListener('click', () => {
+    if (btn.dataset.action === 'add') { navigate('today'); openQuickAdd(() => navigate(current)); }
+    else navigate(btn.dataset.view);
+  }));
+  document.getElementById('app-title').addEventListener('click', () => navigate('today'));
+  initSettingsDrawer();
+  navigate('today');
+  startReminderEngine();
+}
+
+initApp();
+
+</script>
+
+
+</body></html>

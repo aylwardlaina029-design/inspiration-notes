@@ -1,0 +1,325 @@
+/* =====================================================================
+   灵感记录 · 视觉设计系统「清新自然 · 绿色治愈系」v1.0
+   配色与规格取自视觉设计方案：自然绿主色 + 暖米白底 + 三模块点缀色
+   原则：纸感优先、绿为骨架彩为点缀、统一圆角语言；功能与信息结构零改动
+   ===================================================================== */
+:root{
+  /* —— 色彩令牌 · 自然绿治愈系 —— */
+  --bg:#F7F5EF;            /* 页面底·暖米白 */
+  --surface:#FFFFFF;       /* 卡面 */
+  --surface-2:#F2F7F3;     /* 次级面·浅绿卡 */
+  --green-50:#EFF6F1;      /* 绿 50·浅底 / hover 背景 */
+  --green-100:#DCEBE1;     /* 绿 100·次级按钮底 / 标签底 */
+  --ink:#2C3A31;           /* 一级文字·标题 */
+  --text:#2C3A31;          /* 正文 */
+  --muted:#6B7A6F;         /* 二级文字 */
+  --faint:#9AA79D;         /* 三级文字·占位/空状态 */
+  --line:#E8E5DC;          /* 分割线 */
+
+  --primary:#4E9A6C;       /* 自然绿 500·品牌色（图标/选中/FAB） */
+  --primary-d:#3F8759;     /* 绿 600·主按钮/按压 */
+  --primary-deep:#2F6543;  /* 绿 700·选中文字/已完成 */
+  --primary-soft:#9CC7AE;  /* 绿 300·描边/光环 */
+  --mist:#9CC7AE;          /* 浅绿描边（复选框等） */
+  --wood:#8A7968;          /* 大地棕·相对日期 */
+  --wood-d:#7A6B5C;
+  --snow:#F2F7F3;          /* 浅绿卡 */
+
+  --amber:#E8A93D;         /* 阳光琥珀·提醒/到期/有心情 */
+  --amber-d:#A87415;       /* 琥珀加深·文字 */
+  --amber-100:#FBF1DC;     /* 琥珀浅阶 */
+  --gold:#E8A93D;          /* 提醒（别名） */
+  --vermilion:#C96F5E;     /* 危险/逾期 */
+  --danger:#C96F5E;
+  --danger-bg:#F9E9E5;
+  --danger-line:#EFD8D2;   /* 极浅砖红描边·危险区卡片 */
+  --blossom:#E08E8E;       /* 花粉粉·灵感 */
+  --blossom-d:#C97878;     /* 花粉粉加深·标签文字 */
+  --blossom-100:#FAECEC;   /* 花粉粉浅阶·标签底 */
+  --peach:#E08E8E;         /* 灵感（别名） */
+  --violet:#E08E8E;        /* 灵感（别名） */
+  --sky:#6FA8CF;           /* 天空蓝·日程/链接/信息 */
+  --sky-d:#3E7DA8;         /* 天空蓝加深·信息按钮文字 */
+  --sky-100:#E8F1F7;
+
+  /* —— 字体令牌 —— */
+  --font-sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  --font-serif:"Songti SC","STSong","SimSun","Noto Serif SC",serif;
+
+  /* —— 圆角四档（18 / 14 / 10 / 999），输入框 13、小按钮 11 按文档单独规定 —— */
+  --r-card:18px;           /* 卡片·容器·空状态 */
+  --r-btn:14px;            /* 按钮 */
+  --r-btn-sm:11px;         /* 小按钮 */
+  --r-input:13px;          /* 输入框 */
+  --r-sm:10px;             /* 小件·标签块 */
+  --r-pill:999px;          /* 胶囊标签 */
+
+  /* —— 间距 / 阴影 —— */
+  --shadow:0 1px 2px rgba(46,64,48,.04),0 6px 18px rgba(46,64,48,.05);
+  --shadow-btn:0 4px 12px rgba(63,135,89,.28);
+  --tap:44px;
+}
+
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  font-family:var(--font-sans);
+  background:radial-gradient(130% 90% at 50% -10%,#FBFAF6 0%,var(--bg) 58%);
+  color:var(--text); line-height:1.6;
+  -webkit-font-smoothing:antialiased; letter-spacing:.2px;
+}
+::placeholder{color:var(--faint); opacity:1}
+
+/* 焦点可见性（无障碍） */
+:focus-visible{outline:2px solid var(--primary); outline-offset:2px; border-radius:8px}
+
+/* —— 页面切换动效（§5：淡入上移 4px，200ms ease-out）—— */
+@keyframes viewIn{from{opacity:0; transform:translateY(4px)}to{opacity:1; transform:translateY(0)}}
+#view.view-enter{animation:viewIn .2s ease-out}
+
+/* —— 顶部标题 —— */
+.app-header{
+  position:sticky; top:0; z-index:5;
+  background:linear-gradient(180deg,rgba(250,245,238,.96),rgba(250,245,238,.78));
+  backdrop-filter:saturate(140%) blur(8px);
+  padding:18px 18px 12px; text-align:center;
+  border-bottom:1px solid var(--line);
+}
+.app-header h1{font-family:var(--font-serif); font-size:20px; margin:0; letter-spacing:4px; color:var(--ink); font-weight:600}
+.app-header p{margin:4px 0 0; font-size:12px; color:var(--faint); letter-spacing:1px}
+
+/* 顶部右上角菜单图标（圆形浅绿底 + Green 600 线性菜单） */
+.header-gear{
+  position:absolute; top:12px; right:14px; width:38px; height:38px;
+  border:1px solid var(--line); border-radius:50%;
+  background:var(--green-50); color:var(--primary-d);
+  font-size:18px; line-height:1; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:var(--shadow); transition:.15s ease-out;
+}
+.header-gear:hover{background:var(--green-100); color:var(--primary-deep); border-color:var(--primary-soft)}
+.header-gear:active{transform:scale(.92)}
+.header-gear:focus-visible{outline:2px solid var(--primary); outline-offset:2px}
+
+/* —— 右侧滑出设置抽屉（清新自然·绿色治愈系） —— */
+.drawer-overlay{position:fixed; inset:0; z-index:60; background:rgba(46,55,68,.42); opacity:0; visibility:hidden; transition:opacity .18s ease-out,visibility .18s ease-out}
+.drawer-overlay.show{opacity:1; visibility:visible}
+
+.drawer{position:fixed; top:0; right:0; bottom:0; z-index:70; width:min(86vw,340px);
+  background:var(--surface); border-left:1px solid var(--line);
+  box-shadow:-10px 0 34px rgba(46,55,68,.16);
+  transform:translateX(100%); transition:transform .2s cubic-bezier(.4,0,.2,1);
+  display:flex; flex-direction:column}
+.drawer.open{transform:translateX(0)}
+.drawer-head{display:flex; align-items:center; justify-content:space-between;
+  padding:16px 18px; border-bottom:1px solid var(--line); flex:none;
+  background:linear-gradient(180deg,rgba(250,245,238,.96),rgba(250,245,238,.82))}
+.drawer-title{font-family:var(--font-serif); font-size:17px; font-weight:600; color:var(--ink); letter-spacing:2px}
+.drawer-close{width:34px; height:34px; border:none; border-radius:var(--r-btn-sm); background:var(--surface-2); color:var(--text); font-size:15px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.15s ease-out}
+.drawer-close:hover{background:var(--primary); color:#fff}
+.drawer-close:active{transform:scale(.92)}
+.drawer-close:focus-visible{outline:2px solid var(--primary); outline-offset:2px}
+.drawer-body{flex:1; overflow-y:auto; padding:14px 16px calc(24px + env(safe-area-inset-bottom))}
+
+.view{max-width:520px; margin:0 auto; padding:10px 16px 120px}
+
+.loading{padding:40px; text-align:center; color:var(--muted)}
+
+/* —— 顶部 hero（日期） —— */
+.date-hero{padding:14px 6px 16px}
+.date-hero-main{font-family:var(--font-serif); font-size:24px; font-weight:600; color:var(--ink); letter-spacing:2px}
+.date-hero-sub{font-size:13px; color:var(--muted); margin-top:4px; letter-spacing:1px}
+
+/* —— 卡片 —— */
+.card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r-card); padding:16px; margin:14px 0; box-shadow:var(--shadow)}
+.card-title{font-size:15px; font-weight:600; color:var(--ink); margin-bottom:12px; letter-spacing:.5px}
+/* 卡片标题里的计数（如 今日待办 (0/3)）用 Green 700 */
+.card-count{color:var(--primary-deep)}
+
+/* —— 空状态（§4.4 三要素：自然装饰 + 二级色短句 + 三级色行动建议）—— */
+.empty{
+  background:var(--surface-2); border-radius:var(--r-card);
+  padding:26px 18px; text-align:center; margin:12px 0;
+}
+.empty-decor{font-size:30px; line-height:1; margin-bottom:8px}
+.empty-title{font-size:15px; color:var(--muted); margin-bottom:4px}
+.empty-hint{font-size:13px; color:var(--faint)}
+/* 状态型短提示（非空状态，如「未记录」）保持一行轻量文字 */
+.empty-note{font-size:13px; color:var(--faint); padding:6px 2px}
+
+/* —— 按钮（§4.1 五档语义）—— */
+.btn{
+  min-height:var(--tap); border:none; border-radius:var(--r-btn); padding:11px 18px;
+  font-size:14px; font-weight:600; cursor:pointer; letter-spacing:.5px;
+  background:var(--surface-2); color:var(--text);
+  display:inline-flex; align-items:center; justify-content:center; gap:6px;
+  transition:.18s ease-out;
+}
+.btn svg{width:17px; height:17px; flex:none; display:block}
+.btn:active{transform:scale(.97)}
+/* 主要：Green 600 / 白字 —— 每屏最多一个 */
+.btn.primary{background:var(--primary-d); color:#fff; box-shadow:var(--shadow-btn)}
+.btn.primary:active{background:var(--primary-deep)}
+/* 次要：Green 100 / Green 700 */
+.btn.secondary{background:var(--green-100); color:var(--primary-deep)}
+/* 描边：白底 / 二级字 / 分割线边 */
+.btn.outline{background:var(--surface); color:var(--muted); border:1px solid var(--line)}
+/* 危险：浅砖红底 / 砖红字 */
+.btn.danger{background:var(--danger-bg); color:var(--vermilion)}
+/* 幽灵：透明 / Green 700 文字 */
+.btn.ghost{background:transparent; color:var(--primary-deep)}
+/* 信息：天空蓝系，区别于主操作 */
+.btn.info{background:var(--sky-100); color:var(--sky-d)}
+.btn.block{display:flex; width:100%; margin:8px 0}
+.btn.tiny{min-height:34px; padding:6px 14px; font-size:12.5px; border-radius:var(--r-btn-sm)}
+
+/* —— 心情 —— */
+.mood-title{font-size:13px; color:var(--primary-deep); font-weight:600; margin-bottom:10px; letter-spacing:.5px}
+.mood-row{display:flex; gap:10px; justify-content:space-between}
+.mood-btn{flex:1; font-size:24px; border:1px solid var(--line); background:var(--surface-2); border-radius:14px; padding:10px 0; cursor:pointer; transition:.18s ease-out}
+.mood-btn.active{background:var(--primary); border-color:var(--primary); transform:scale(1.06); box-shadow:0 4px 10px rgba(78,154,108,.3), inset 0 0 0 2px rgba(255,255,255,.55)}
+.mood-note-input{margin-top:12px; width:100%; border:1px solid var(--line); border-radius:var(--r-input); padding:10px 12px; font-size:13px; outline:none; background:var(--surface-2); color:var(--text)}
+.mood-note-input:focus{border-color:var(--primary-soft); background:var(--surface); box-shadow:0 0 0 3px rgba(156,199,174,.25)}
+
+/* —— 导航线条图标（绿色·国风线条） —— */
+.nav-btn svg{width:22px; height:22px; display:block}
+.mood-btn svg{width:26px; height:26px; display:block; margin:0 auto}
+
+/* —— 任务行 —— */
+.task-row{display:flex; align-items:center; gap:12px; padding:10px 2px; border-bottom:1px solid var(--line)}
+.task-row:last-child{border-bottom:none}
+.task-title{flex:1; font-size:15px; color:var(--text)}
+.task-title.struck{text-decoration:line-through; color:var(--muted)}
+.check{width:26px; height:26px; flex:none; border-radius:50%; border:2px solid var(--mist); background:transparent; color:#fff; font-size:14px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.18s ease-out}
+.check.done{background:var(--primary); border-color:var(--primary)}
+.check:active{transform:scale(.9)}
+.task-edit{border:none; background:none; color:var(--muted); font-size:16px; cursor:pointer; padding:0 4px}
+.task-meta{font-size:12px; color:var(--muted); padding:0 2px 6px 38px; letter-spacing:.5px}
+
+/* —— 灵感 —— */
+.ref-card{border-left:3px solid var(--blossom)}
+.ref-card .ref-top{display:flex; justify-content:space-between; align-items:center; margin-bottom:6px}
+.ref-date{font-size:12px; color:var(--muted)}
+.ref-title{font-family:var(--font-serif); font-weight:600; margin-bottom:4px; color:var(--ink); font-size:15px}
+.ref-content{font-size:15px; white-space:pre-wrap; color:var(--text)}
+
+/* —— 标签 / Chips（§4.2：胶囊 r999 / 高 26px / 12px / 字重 600）—— */
+.chip{height:26px; display:inline-flex; align-items:center; padding:0 10px; border-radius:var(--r-pill); font-size:12px; font-weight:600; letter-spacing:.5px; white-space:nowrap}
+.chip.blossom{background:var(--blossom-100); color:var(--blossom-d)}
+
+/* —— 底部导航"+"按钮 —— */
+/* 仍在底栏内、静止不上抬（用户决定）；形态按方案改为圆角方形并放大到 44px */
+/* margin-top:-8px = (44-22)/2，使方形中心与旁边 22px 图标的光学中心同轴 */
+.nav-btn.add-btn{align-self:flex-start}
+.nav-btn.add-btn span:first-child{
+  display:flex; align-items:center; justify-content:center;
+  width:44px; height:44px; border-radius:15px;
+  margin-top:-8px;
+  background:var(--primary); color:#fff; font-size:16px; line-height:1;
+  box-shadow:0 5px 14px rgba(78,154,108,.35);
+  transform:translateY(0); filter:none;
+  transition:transform .18s ease-out, box-shadow .18s ease-out;
+}
+/* 十字用 SVG 绘制：不受系统字体差异影响，笔画粗细与描边可控 */
+.nav-btn.add-btn span:first-child svg{width:20px; height:20px; display:block}
+.nav-btn.add-btn:active span:first-child{
+  transform:translateY(-7px) scale(1.05);
+  box-shadow:0 9px 20px rgba(78,154,108,.42);
+}
+#app-title{cursor:pointer}
+
+/* —— 底部导航 —— */
+.bottom-nav{
+  position:fixed; bottom:0; left:0; right:0; z-index:15;
+  display:flex; justify-content:space-around; align-items:center;
+  background:linear-gradient(180deg,rgba(252,248,242,.9),var(--surface));
+  backdrop-filter:saturate(140%) blur(8px);
+  border-top:1px solid var(--line);
+  padding:14px 0 calc(8px + env(safe-area-inset-bottom)); max-width:520px; margin:0 auto;
+}
+.nav-btn{border:none; background:none; display:flex; flex-direction:column; align-items:center; gap:2px; font-size:12px; color:var(--faint); cursor:pointer; padding:6px 10px; min-height:var(--tap); justify-content:center}
+/* 统一 28px 图标槽位：所有导航图标基线一致，小字对齐 */
+.nav-btn span:first-child{font-size:19px; filter:grayscale(.2); height:28px; display:flex; align-items:center; justify-content:center}
+/* 选中：Green 700 + 小字加粗 */
+.nav-btn.active{color:var(--primary-deep); font-weight:600}
+.nav-btn.active:not(.add-btn) span:first-child{transform:translateY(-1px); filter:none}
+
+/* —— 弹层（底部抽屉） —— */
+.modal-overlay{position:fixed; inset:0; background:rgba(46,55,68,.42); display:flex; align-items:flex-end; justify-content:center; z-index:50; padding:0}
+.modal{background:var(--surface); width:100%; max-width:520px; border-radius:22px 22px 0 0; padding:22px 18px calc(22px + env(safe-area-inset-bottom)); animation:slideUp .18s ease-out; box-shadow:0 -8px 30px rgba(46,55,68,.12); position:relative}
+.modal::before{content:""; position:absolute; top:10px; left:50%; transform:translateX(-50%); width:38px; height:4px; border-radius:4px; background:var(--line)}
+.modal.wide{max-height:85vh; overflow:auto}
+@keyframes slideUp{from{transform:translateY(40px);opacity:.6}to{transform:translateY(0);opacity:1}}
+.modal-title{font-family:var(--font-serif); margin:6px 0 16px; font-size:20px; color:var(--ink); letter-spacing:1px}
+.qa-input, .qa-select, .qa-date, .qa-textarea{width:100%; border:1px solid var(--line); border-radius:var(--r-input); padding:12px 13px; font-size:15px; outline:none; margin-bottom:12px; font-family:inherit; background:var(--surface-2); color:var(--text)}
+.qa-input:focus, .qa-select:focus, .qa-date:focus, .qa-textarea:focus{border-color:var(--primary); background:var(--surface)}
+.qa-textarea{min-height:120px; resize:vertical}
+.qa-tabs{display:flex; gap:8px; margin-bottom:14px}
+.qa-tab{flex:1; border:1px solid var(--line); background:var(--surface-2); border-radius:var(--r-btn); padding:10px 0; font-size:15px; color:var(--text); cursor:pointer; transition:.18s ease-out}
+/* 分段控件选中：Green 600 白字圆角块 */
+.qa-tab.active{background:var(--primary-d); color:#fff; border-color:var(--primary-d)}
+.qa-field{margin-bottom:12px}
+.qa-field label{display:block; font-size:13px; color:var(--muted); margin-bottom:6px; letter-spacing:.5px}
+.qa-weekdays{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px}
+.qa-weekdays.hidden{display:none}
+.wd-label{display:flex; align-items:center; gap:4px; font-size:14px; background:var(--surface-2); padding:7px 11px; border-radius:var(--r-btn-sm); border:1px solid var(--line)}
+.qa-hint{font-size:12px; color:var(--wood-d); margin-top:-6px; margin-bottom:8px; letter-spacing:.5px}
+.qa-actions{display:flex; gap:10px; margin-top:8px}
+.qa-actions .btn{flex:1}
+/* 编辑弹层内的删除入口：独立成行 + 上方分隔线，与「取消/保存」拉开距离防误触 */
+.qa-del-row{margin-top:16px; padding-top:14px; border-top:1px solid var(--line)}
+.qa-del-row .btn{margin:0}
+
+/* —— 日历（本轮按用户决定保持现状，不随方案改动）—— */
+.cal-header{display:flex; align-items:center; justify-content:space-between; padding:8px 4px 14px}
+.cal-title{font-family:var(--font-serif); font-size:20px; font-weight:600; color:var(--ink); letter-spacing:2px}
+.cal-nav{width:40px; height:40px; border:none; background:var(--surface-2); border-radius:12px; font-size:20px; cursor:pointer; color:var(--text)}
+.cal-grid{display:grid; grid-template-columns:repeat(7,1fr); gap:5px; background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:12px 8px; box-shadow:var(--shadow)}
+.cal-weekday{text-align:center; font-size:12px; color:var(--muted); padding-bottom:6px; letter-spacing:1px}
+.cal-cell{border-radius:12px; aspect-ratio:1/1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; cursor:pointer; background:var(--surface-2); transition:.15s ease-out}
+.cal-cell:hover{background:#E3EFE7}
+.cal-cell.out{opacity:.38}
+.cal-cell.today{background:#FFFFFF; outline:1.5px solid var(--primary)}
+.cal-num{font-size:15px; font-weight:600; color:var(--ink)}
+.cal-dots{display:flex; gap:3px; align-items:center; min-height:10px}
+.dot{width:6px; height:6px; border-radius:50%; background:var(--mist)}
+/* 已完成：用对钩代替深绿圆点——形状差异比色相差异更易辨识（6px 圆点下两绿难分） */
+.cal-tick{display:inline-flex; align-items:center; justify-content:center; width:10px; height:10px; font-size:11px; line-height:1; font-weight:700; color:var(--primary-deep)}
+.dot.partial{background:var(--primary)}
+.dot.ref{background:var(--blossom)}
+.dot.mood{background:var(--amber)}
+.cal-legend{display:flex; flex-wrap:wrap; gap:14px; justify-content:center; padding:14px 4px; font-size:12px; color:var(--muted)}
+.mood-detail{display:flex; align-items:center; gap:8px}
+.mood-emoji{font-size:20px; line-height:1}
+.mood-detail-label{font-weight:600; color:var(--ink); font-size:15px}
+.mood-detail-note{color:var(--muted); font-size:13px}
+.cal-legend span{display:flex; align-items:center; gap:5px}
+.cal-legend .dot{position:static}
+
+/* —— 日期详情 —— */
+.day-body{padding:4px 2px}
+.day-section-title{font-size:13px; font-weight:600; color:var(--muted); margin:16px 0 6px; letter-spacing:.5px}
+.ref-mini{font-size:15px; color:var(--text); background:var(--surface-2); border-radius:var(--r-btn-sm); padding:9px 11px; margin-bottom:6px}
+.set-row{display:flex; gap:10px}
+.set-row .btn{flex:1}
+.about .muted{color:var(--muted); font-size:13px; margin-top:6px}
+.muted{color:var(--muted)}
+
+/* 危险区卡片：极浅砖红描边提示风险但不刺眼 */
+.danger-zone{border-color:var(--danger-line)}
+
+/* —— 到期提醒横幅 —— */
+.reminder-banner{background:linear-gradient(135deg,#FBF4E6,#F7EEDB); border:1px solid #F0E2C4; border-left:4px solid var(--amber); border-radius:var(--r-card); padding:14px 16px; margin:14px 0; box-shadow:var(--shadow)}
+.reminder-head{display:flex; align-items:center; gap:7px; font-family:var(--font-serif); font-size:15px; font-weight:600; color:var(--amber-d); margin-bottom:4px; letter-spacing:1px}
+/* 提醒图标：叶形轮廓，替代机械铃铛 */
+.reminder-ico{width:18px; height:18px; flex:none; display:inline-flex; color:var(--amber-d)}
+.reminder-ico svg{width:18px; height:18px; display:block}
+.reminder-tip{font-size:12px; color:var(--muted); margin:4px 0 2px}
+
+/* 逾期任务行 */
+.overdue-row{box-shadow:inset 3px 0 0 var(--vermilion); border-radius:var(--r-btn-sm); background:var(--danger-bg)}
+
+/* —— 动效偏好 —— */
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important; transition:none !important}
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>心情图标预览 · 芦汀初雪国风融合</title>
+<style>
+  :root{ --ink:#3E5C49; --active:#4E7E63; --tray:#F4F1E8; }
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:#fafafa;color:#222;margin:0;padding:36px;}
+  h1{font-size:20px;margin:0 0 4px}
+  p.sub{color:#888;font-size:13px;margin:0 0 28px;line-height:1.6}
+  .grid{display:flex;gap:22px;flex-wrap:wrap}
+  .card{background:#fff;border:1px solid #eee;border-radius:16px;padding:22px 16px;width:160px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+  .row{display:flex;gap:16px;justify-content:center;align-items:flex-end;margin-bottom:14px}
+  .tray{width:60px;height:60px;border-radius:50%;background:var(--tray);display:flex;align-items:center;justify-content:center}
+  .tray svg{width:34px;height:34px}
+  .label{font-size:13px;color:#555}
+  .label b{display:block;color:#222;font-size:15px;margin-bottom:2px}
+  .ico{color:var(--ink)}
+  .ico.active{color:var(--active)}
+  .state{font-size:11px;color:#bbb;margin-top:8px}
+  .note{margin-top:34px;font-size:12.5px;color:#777;line-height:1.8;max-width:680px}
+  .note code{background:#f0f0f0;padding:1px 5px;border-radius:4px}
+</style>
+</head>
+<body>
+<h1>心情图标 · 芦汀初雪国风融合</h1>
+<p class="sub">延续 Tab 图标语言：纤细线（stroke 1.5）+ 圆+弧线 + 国风绿系，情绪脸表达<br>每枚展示「默认态（左）/ 选中态（右）」</p>
+
+<div class="grid">
+  <div class="card">
+    <div class="row">
+      <div class="tray"><svg class="ico"><use href="#ic-joy"/></svg></div>
+      <div class="tray"><svg class="ico active"><use href="#ic-joy"/></svg></div>
+    </div>
+    <div class="label"><b>愉悦</b>Joy</div>
+    <div class="state">左：默认 · 右：选中</div>
+  </div>
+
+  <div class="card">
+    <div class="row">
+      <div class="tray"><svg class="ico"><use href="#ic-calm"/></svg></div>
+      <div class="tray"><svg class="ico active"><use href="#ic-calm"/></svg></div>
+    </div>
+    <div class="label"><b>平静</b>Calm</div>
+    <div class="state">左：默认 · 右：选中</div>
+  </div>
+
+  <div class="card">
+    <div class="row">
+      <div class="tray"><svg class="ico"><use href="#ic-sad"/></svg></div>
+      <div class="tray"><svg class="ico active"><use href="#ic-sad"/></svg></div>
+    </div>
+    <div class="label"><b>低落</b>Sad</div>
+    <div class="state">左：默认 · 右：选中</div>
+  </div>
+
+  <div class="card">
+    <div class="row">
+      <div class="tray"><svg class="ico"><use href="#ic-angry"/></svg></div>
+      <div class="tray"><svg class="ico active"><use href="#ic-angry"/></svg></div>
+    </div>
+    <div class="label"><b>生气</b>Angry</div>
+    <div class="state">左：默认 · 右：选中</div>
+  </div>
+
+  <div class="card">
+    <div class="row">
+      <div class="tray"><svg class="ico"><use href="#ic-anxious"/></svg></div>
+      <div class="tray"><svg class="ico active"><use href="#ic-anxious"/></svg></div>
+    </div>
+    <div class="label"><b>焦虑</b>Anxious</div>
+    <div class="state">左：默认 · 右：选中</div>
+  </div>
+
+  <div class="card">
+    <div class="row">
+      <div class="tray"><svg class="ico"><use href="#ic-tired"/></svg></div>
+      <div class="tray"><svg class="ico active"><use href="#ic-tired"/></svg></div>
+    </div>
+    <div class="label"><b>疲惫</b>Tired</div>
+    <div class="state">左：默认 · 右：选中</div>
+  </div>
+</div>
+
+<div class="note">
+  <strong>使用要点：</strong>线条用 <code>currentColor</code> 控制，脸底浅绿 <code>#A1C1A1</code> 固定。<br>
+  默认态：父级 <code>color:#3E5C49</code>（墨绿）；选中态：父级 <code>color:#4E7E63</code>（主题绿）。底托宣纸米白 <code>#F4F1E8</code> 仅用于演示。
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+  <symbol id="ic-joy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="8" fill="#A1C1A1" fill-opacity="0.22"/>
+    <path d="M8 10.4q1.6 -1.8 3.2 0"/>
+    <path d="M12.8 10.4q1.6 -1.8 3.2 0"/>
+    <path d="M8.5 15q3.5 3.4 7 0"/>
+  </symbol>
+
+  <symbol id="ic-calm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="8" fill="#A1C1A1" fill-opacity="0.22"/>
+    <circle cx="9" cy="10.6" r="0.9"/>
+    <circle cx="15" cy="10.6" r="0.9"/>
+    <path d="M9 15.5h6"/>
+  </symbol>
+
+  <symbol id="ic-sad" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="8" fill="#A1C1A1" fill-opacity="0.22"/>
+    <path d="M8.5 10.2 10.8 9.2"/>
+    <path d="M13.2 9.2 15.5 10.2"/>
+    <path d="M8.5 15q3.5 3 7 0"/>
+  </symbol>
+
+  <symbol id="ic-angry" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="8" fill="#A1C1A1" fill-opacity="0.22"/>
+    <path d="M8.5 9.2 10.8 10.2"/>
+    <path d="M13.2 10.2 15.5 9.2"/>
+    <path d="M12 8v1.3"/>
+    <path d="M9.5 16h5"/>
+  </symbol>
+
+  <symbol id="ic-anxious" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="8" fill="#A1C1A1" fill-opacity="0.22"/>
+    <circle cx="9" cy="10.6" r="0.9"/>
+    <circle cx="15" cy="10.6" r="0.9"/>
+    <path d="M8.5 15q1.2 -1.2 2.4 0q1.2 1.2 2.4 0q1.2 -1.2 2.4 0"/>
+  </symbol>
+
+  <symbol id="ic-tired" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="8" fill="#A1C1A1" fill-opacity="0.22"/>
+    <path d="M8 10.4q1.5 1 3 0"/>
+    <path d="M13 10.4q1.5 1 3 0"/>
+    <path d="M10.5 16q1.5 1.2 3 0"/>
+  </symbol>
+</defs>
+</svg>
+</body>
+</html>

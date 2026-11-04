@@ -1,0 +1,31 @@
+const fs=require('fs');
+const {JSDOM,VirtualConsole}=require('jsdom');
+const html=fs.readFileSync('standalone.html','utf8');
+const errors=[];
+const vc=new VirtualConsole();
+vc.on('jsdomError',e=>{const m=(e.detail&&e.detail.message)||e.message||''; if(!/scrollTo/.test(m)) errors.push('jsdomError: '+m);});
+const dom=new JSDOM(html,{runScripts:'dangerously',pretendToBeVisual:true,url:'http://localhost/',virtualConsole:vc});
+const {window}=dom;
+function click(el){el.dispatchEvent(new window.MouseEvent('click',{bubbles:true}));}
+setTimeout(async ()=>{
+  const doc=window.document;
+  const moodBtns=doc.querySelectorAll('.mood-btn');
+  console.log('today mood buttons:', moodBtns.length);
+  click(moodBtns[4]);
+  await new Promise(r=>setTimeout(r,50));
+  console.log('active mood after click (should exist):', !!doc.querySelector('.mood-btn.active'));
+  const navCal=[...doc.querySelectorAll('.nav-btn')].find(b=>b.dataset.view==='calendar');
+  click(navCal);
+  await new Promise(r=>setTimeout(r,80));
+  const todayCell=doc.querySelector('.cal-cell.today');
+  console.log('today cell has .cal-mood icon:', !!(todayCell&&todayCell.querySelector('.cal-mood svg')));
+  click(todayCell);
+  await new Promise(r=>setTimeout(r,50));
+  const detailIcon=doc.querySelector('.mood-detail-icon svg');
+  const detailLabel=doc.querySelector('.mood-detail-label');
+  console.log('detail mood SVG icon present:', !!detailIcon);
+  console.log('detail mood label text:', detailLabel?detailLabel.textContent:'(none)');
+  const modalText=doc.querySelector('.modal')?doc.querySelector('.modal').textContent:'';
+  console.log('detail modal contains 未记录? ', modalText.includes('未记录'));
+  console.log('ERRORS:', errors.length?errors:'none');
+},900);

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html data-page-node-id="cP8MbsFDlufy7ExZTibi7J" lang="zh-CN">
+<head data-page-node-id="cujf2sZHyLOdVQON25Rv0a">
+<script data-page-node-id="LD1gjq6VG13utnuLI5sJex" src="/page/page_comm/inject.js"></script>
+<meta data-page-node-id="WfTSQBZpI4sURnT4JzBANP" charset="UTF-8">
+<meta data-page-node-id="0NYqwoBYg2aQcryyGj40gd" content="width=device-width, initial-scale=1.0" name="viewport">
+<title data-page-node-id="kMCV2Z1BUVnG6NssVSHpPX" data-pnid-children="88D8U87Gpu9LgxrJqWVOkW">灵感记录 · 视觉设计方案 v1.0</title>
+<style data-page-node-id="YyUPetKwCJDnMGLEwWB4ty" data-pnid-children="0bFCuu8aI3DWvuicqjO32z">
+  :root{
+    --green-50:#EFF6F1; --green-100:#DCEBE1; --green-300:#9CC7AE;
+    --green-500:#4E9A6C; --green-600:#3F8759; --green-700:#2F6543; --green-900:#1E4030;
+    --amber-400:#E8A93D; --amber-100:#FBF1DC;
+    --sky-400:#6FA8CF;   --sky-100:#E8F1F7;
+    --blossom-400:#E08E8E; --blossom-100:#FAECEC;
+    --earth-500:#8A7968;
+    --danger:#C96F5E; --danger-bg:#F9E9E5;
+    --bg-page:#F7F5EF; --bg-card:#FFFFFF; --bg-card-alt:#F2F7F3;
+    --line:#E8E5DC;
+    --t1:#2C3A31; --t2:#6B7A6F; --t3:#9AA79D;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--bg-page);color:var(--t1);line-height:1.7;font-size:15px}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px 80px}
+  header.doc{padding:56px 0 32px;border-bottom:1px solid var(--line);margin-bottom:8px}
+  .doc-tag{display:inline-block;background:var(--green-100);color:var(--green-700);
+    font-size:12px;font-weight:600;padding:4px 12px;border-radius:999px;letter-spacing:.08em}
+  h1{font-size:30px;margin:14px 0 6px;letter-spacing:.02em}
+  .sub{color:var(--t2);font-size:14px}
+  .meta{display:flex;gap:20px;margin-top:14px;font-size:12.5px;color:var(--t3);flex-wrap:wrap}
+
+  nav.toc{position:sticky;top:0;background:rgba(247,245,239,.92);backdrop-filter:blur(8px);
+    z-index:10;display:flex;gap:6px;flex-wrap:wrap;padding:14px 0;border-bottom:1px solid var(--line);margin-bottom:36px}
+  nav.toc a{font-size:13px;color:var(--t2);text-decoration:none;padding:6px 14px;border-radius:999px;background:#fff;
+    border:1px solid var(--line)}
+  nav.toc a:hover{color:var(--green-700);border-color:var(--green-300)}
+
+  h2{font-size:22px;margin:48px 0 6px;display:flex;align-items:center;gap:10px}
+  h2 .no{font-size:13px;color:#fff;background:var(--green-600);border-radius:8px;padding:2px 9px;font-weight:600}
+  h3{font-size:16.5px;margin:30px 0 12px;color:var(--green-700)}
+  .lead{color:var(--t2);font-size:14px;margin-bottom:20px}
+  p{margin-bottom:12px}
+  ul{margin:0 0 16px 20px}
+  li{margin-bottom:6px}
+  code{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;background:var(--green-50);
+    color:var(--green-700);padding:2px 7px;border-radius:6px}
+
+  .card{background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:22px;margin:16px 0}
+  .grid{display:grid;gap:12px}
+  .g2{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+  .g3{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+  .g4{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}
+
+  /* swatch */
+  .sw{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+  .sw .chip{height:64px}
+  .sw .info{padding:10px 12px}
+  .sw .name{font-size:13px;font-weight:600}
+  .sw .hex{font-size:12px;color:var(--t3);font-family:ui-monospace,monospace}
+  .sw .use{font-size:12px;color:var(--t2);margin-top:3px;line-height:1.5}
+
+  .txt-sample{padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;margin-bottom:8px}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+  th{background:var(--bg-card-alt);text-align:left;padding:11px 14px;font-size:12.5px;color:var(--green-700);font-weight:600}
+  td{padding:11px 14px;border-top:1px solid var(--line);color:var(--t1);vertical-align:top}
+  td.dim{color:var(--t2)}
+
+  /* ===== live mockups ===== */
+  .phone{background:#fff;border:1px solid var(--line);border-radius:28px;padding:20px 16px 16px;
+    max-width:320px;box-shadow:0 6px 24px rgba(46,80,55,.07);margin:0 auto}
+  .phone .p-head{text-align:center;margin-bottom:16px}
+  .phone .p-title{font-size:16px;font-weight:700}
+  .phone .p-sub{font-size:10.5px;color:var(--t3)}
+  .phone .p-date{font-size:18px;font-weight:700;margin-bottom:2px}
+  .p-label{font-size:12px;color:var(--t2);font-weight:600;margin:14px 0 8px}
+  .mood-row{display:flex;gap:8px}
+  .mood{flex:1;aspect-ratio:1.35;border-radius:12px;background:var(--bg-card-alt);
+    display:flex;align-items:center;justify-content:center;font-size:18px;
+    border:1.5px solid transparent;transition:.15s}
+  .mood.on{background:var(--green-500);box-shadow:0 4px 10px rgba(78,154,108,.3);transform:scale(1.04)}
+  .p-card{background:var(--bg-card-alt);border-radius:14px;padding:14px;margin-top:14px}
+  .p-empty{text-align:center;font-size:11.5px;color:var(--t3);padding:14px 0}
+
+  .fab{width:52px;height:52px;border-radius:18px;background:var(--green-500);color:#fff;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(78,154,108,.35);border:none}
+  .tabbar{display:flex;align-items:center;justify-content:space-around;margin-top:18px;padding-top:10px;border-top:1px solid var(--line)}
+  .tab{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10.5px;color:var(--t3)}
+  .tab.on{color:var(--green-700);font-weight:600}
+  .tab svg{width:22px;height:22px}
+
+  /* calendar mock */
+  .cal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+  .cal-nav{width:28px;height:28px;border-radius:10px;background:var(--green-50);color:var(--green-700);
+    display:flex;align-items:center;justify-content:center;border:none;font-size:13px}
+  .cal-month{font-weight:700;font-size:14px}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+  .cal-dow{font-size:10px;color:var(--t3);text-align:center;padding:4px 0}
+  .cal-day{aspect-ratio:1;border-radius:10px;background:var(--bg-card-alt);display:flex;flex-direction:column;
+    align-items:center;justify-content:center;font-size:11.5px;gap:2px}
+  .cal-day.today{background:#fff;border:1.5px solid var(--green-600);color:var(--green-700);font-weight:700;box-shadow:0 3px 8px rgba(78,154,108,.15)}
+  .cal-day.out{opacity:.35}
+  .dots{display:flex;gap:2px;height:4px}
+  .dot{width:4px;height:4px;border-radius:50%}
+  .legend{display:flex;justify-content:center;gap:14px;margin-top:14px;font-size:10.5px;color:var(--t2);flex-wrap:wrap}
+  .legend i{width:6px;height:6px;border-radius:50%;display:inline-block;margin-right:4px;vertical-align:1px}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;
+    border-radius:14px;font-size:14px;font-weight:600;padding:11px 22px;border:1.5px solid transparent;cursor:default}
+  .btn-p{background:var(--green-600);color:#fff;box-shadow:0 4px 12px rgba(63,135,89,.28)}
+  .btn-s{background:var(--green-100);color:var(--green-700)}
+  .btn-o{background:#fff;border-color:var(--line);color:var(--t2)}
+  .btn-d{background:var(--danger-bg);color:var(--danger)}
+  .btn-ghost{background:transparent;color:var(--green-700)}
+  .btn-sm{padding:7px 14px;font-size:12.5px;border-radius:11px}
+  .btn-lg{width:100%;padding:14px;font-size:15px}
+  .btn-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+
+  .tag{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;
+    padding:5px 12px;border-radius:999px;background:var(--green-100);color:var(--green-700)}
+  .tag.amber{background:var(--amber-100);color:#A87415}
+  .tag.sky{background:var(--sky-100);color:#3D739E}
+  .tag.blossom{background:var(--blossom-100);color:#B05252}
+  .tag.plain{background:var(--bg-card-alt);color:var(--t2)}
+
+  .input-demo{background:var(--bg-card-alt);border:1.5px solid transparent;border-radius:13px;
+    padding:12px 14px;font-size:14px;color:var(--t3)}
+  .input-demo.focus{border-color:var(--green-300);background:#fff;color:var(--t1);
+    box-shadow:0 0 0 3px rgba(156,199,174,.25)}
+
+  .seg{display:flex;background:var(--bg-card-alt);border-radius:13px;padding:4px;gap:4px}
+  .seg div{flex:1;text-align:center;font-size:13px;padding:9px 0;border-radius:10px;color:var(--t2);font-weight:600}
+  .seg div.on{background:var(--green-600);color:#fff;box-shadow:0 2px 6px rgba(63,135,89,.25)}
+
+  .empty-demo{text-align:center;padding:36px 20px;background:var(--bg-card-alt);border-radius:16px}
+  .empty-demo .leaf{font-size:34px;margin-bottom:10px;opacity:.7}
+  .empty-demo .t{font-size:14px;color:var(--t2);margin-bottom:4px}
+  .empty-demo .h{font-size:12px;color:var(--t3)}
+
+  .sheet-demo{background:#fff;border-radius:22px 22px 0 0;border:1px solid var(--line);padding:20px 18px 18px;
+    box-shadow:0 -8px 30px rgba(46,80,55,.1);position:relative}
+  .grabber{width:36px;height:4px;border-radius:2px;background:var(--line);margin:0 auto 14px}
+
+  .drawer{background:#fff;border-radius:0 20px 20px 0;border:1px solid var(--line);padding:20px 18px;
+    box-shadow:4px 0 20px rgba(46,80,55,.08)}
+  .set-card{border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
+  .set-card h4{font-size:14px;margin-bottom:12px}
+  .set-note{font-size:11.5px;color:var(--t3);margin-top:10px;line-height:1.6}
+
+  .icon-cell{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 12px;text-align:center}
+  .icon-cell svg{width:30px;height:30px;stroke:var(--green-600);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .icon-cell .n{font-size:12px;font-weight:600;margin-top:8px}
+  .icon-cell .d{font-size:11px;color:var(--t3);margin-top:2px;line-height:1.5}
+
+  .check li{list-style:none;position:relative;padding-left:26px;margin-bottom:8px}
+  .check li::before{content:"";position:absolute;left:0;top:7px;width:14px;height:14px;border-radius:5px;
+    background:var(--green-100);border:1.5px solid var(--green-300)}
+  .check li::after{content:"";position:absolute;left:4px;top:9px;width:5px;height:8px;
+    border-right:2px solid var(--green-700);border-bottom:2px solid var(--green-700);transform:rotate(40deg)}
+
+  footer.doc{border-top:1px solid var(--line);margin-top:60px;padding-top:24px;font-size:12.5px;color:var(--t3)}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:720px){.two-col{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page-node-id="0iurImE1iEIocGeF8ZUm8V">
+<div data-page-node-id="prr7tlg92V6eL1vV1o7BeO" class="wrap">
+
+<header data-page-node-id="c15YRRBJwHRXMmA1oCjehu" class="doc">
+  <span data-page-node-id="BmX096aKMs7VfBSPWtHvHD" class="doc-tag"><!--pnid:X8BVz1WIK7GIsclBdBTQXd-->DESIGN SPEC · v1.0</span>
+  <h1 data-page-node-id="vdaxnuyzVOtS3ysd6COQsa"><!--pnid:ndlP7u0bEJ9uGSlvagCGr1-->「灵感记录」视觉设计方案</h1>
+  <p data-page-node-id="aDcnAnezC1DSIhoaSFRfWC" class="sub"><!--pnid:gFkxgA6QBdkgTrqKgmfOoW-->清新自然 · 绿色治愈系 redesign —— 功能结构不变，仅重构视觉层</p>
+  <div data-page-node-id="qOw6Q0EX7TxYjrhoSTVCHD" class="meta">
+    <span data-page-node-id="mwHE7EHnWvVqUDOdwipnqN"><!--pnid:vGBdUjNzwBOPK8uHJNyJi1-->📐 适配：移动端优先（PWA）</span>
+    <span data-page-node-id="0P7zsHZTx4w1TaJE8b1PlJ"><!--pnid:E6hloVk7LWiKTBKDPr85e4-->🎨 主色：自然绿 #4E9A6C</span>
+    <span data-page-node-id="ix9KZL5HCHmeu3VZT9Kqzx"><!--pnid:EQjCLFTWK12IrbSHLztz6r-->📦 范围：5 页面 · 3 模块 · 全套组件</span>
+  </div>
+</header>
+
+<nav data-page-node-id="RB3GqO5nHGnbrAVkotwALL" class="toc">
+  <a data-page-node-id="KQlSDQqCrlJE6iH5AHcqpR" href="#s0"><!--pnid:kDf7sfzWTOZjiBbOF3Aw8h-->设计概览</a><a data-page-node-id="IkatZBzsIHtdhsyboM6btv" href="#s1"><!--pnid:JTMYx52cPACPtcJ3w8bfiD-->色彩系统</a><a data-page-node-id="AjFJoPQSVorXIUaHBr5Znk" href="#s2"><!--pnid:pWk8LNK8MDxEI6NPpy0UCQ-->图标系统</a>
+  <a data-page-node-id="afqD8L3Ha64cAiHONemJGg" href="#s3"><!--pnid:BWsB1YaQWnJzl4LEAPieN4-->页面应用</a><a data-page-node-id="LvsyfkvRfD4ujp2L4oBPPc" href="#s4"><!--pnid:ax2RC1lJ8DIohEES7MQorr-->组件规范</a><a data-page-node-id="SYcFOE8zRgPRaZSD177h39" href="#s5"><!--pnid:A22R67mD5yMeWTu7wwd6hq-->移动端适配</a>
+</nav>
+
+<!--pnid:knf8k4yAEfFK8JXsOmTmRI--><!-- ============ 0 概览 ============ -->
+<h2 data-page-node-id="3QHHF7CcU1qm6vrvMR9PIQ" id="s0"><span data-page-node-id="MwGbdXHVkwgwBqQ0rSMA8K" class="no"><!--pnid:PlNdZS4LjMVArOSKfhky1Y-->00</span><!--pnid:Hg5lCZFX8kStVgDt1pguq4-->设计概览</h2>
+<p data-page-node-id="H532tZw9cCmI9M2yNymbuL" class="lead"><!--pnid:gucZe8Zu3PAyTLRcJwWHXT-->先想清楚"要什么样的感觉"，再谈色值。现状是冷蓝工具风，与"记录生活"的定位错位；新方案的关键词是：</p>
+<div data-page-node-id="E1bytsag3SlILFSpItPtDq" class="btn-row" style="margin-bottom:20px">
+  <span data-page-node-id="WwmDaLLU24cTFHhvSlxlmA" class="tag"><!--pnid:InQClFRdGUaSlM3TWpJkJE-->清新</span><span data-page-node-id="zJt5DvXD5iIMx8BtgpzDtQ" class="tag sky"><!--pnid:lY5nGw52lYzszYmawsp19W-->自然</span><span data-page-node-id="POHN6XcAm0fpznjz9CYHec" class="tag amber"><!--pnid:JIQzjb5uhBNBZDyRiPw74e-->治愈</span><span data-page-node-id="OX917wRp8PyXDM0UOxt9bF" class="tag blossom"><!--pnid:mOqWQtiwpQ6tdXbAB4XaCo-->轻松</span><span data-page-node-id="DttY5n43d3qjsAlM9zds1K" class="tag plain"><!--pnid:q0Knmy93994xAyPuGINcho-->干净</span>
+</div>
+<div data-page-node-id="gi2jaRsVmy8w4imXulk5gH" class="card">
+  <ul data-page-node-id="eMafC6HJRUt0UvDB91Ktj2" class="check">
+    <li data-page-node-id="SftXvAvA99PvLLsnbke2nY"><strong data-page-node-id="GBJQp8rVV9eYVh1t2dDgdu"><!--pnid:vJVhRNf7XBIItHLzohNCM5-->纸感优先：</strong><!--pnid:IPtoVt9NmbYgPAitQFYuHk-->暖米白页面底（#F7F5EF）+ 纯白卡片，像摊开在桌面上的手账，而不是一块屏幕。</li>
+    <li data-page-node-id="WHa9BVVQ89wgRd34j9r6f1"><strong data-page-node-id="fEwULDbH9dX5bEL07uk1EW"><!--pnid:1n9Ms2YwJqAsmNZGJLtB8q-->绿为骨架，彩为点缀：</strong><!--pnid:2WuxkHQ2SjO6Sh6FMzkhNp-->主色自然绿承担所有"操作与选中"，三个模块各配一个自然系辅助色，只做小面积点缀（圆点、标签、图标），绝不抢主色的戏。</li>
+    <li data-page-node-id="rUoHBhr3Mzz5gCmK0GxHrr"><strong data-page-node-id="0sRaB4TRD79qpclH7qCzj1"><!--pnid:6mR5V0xL2EVcM16IbCLVNz-->圆角统一语言：</strong><!--pnid:prcdib4DLq9Wrqc3y3KM9K-->全站圆角分四档（10 / 14 / 18 / 999），没有锐角；图标全部圆头线性，与圆角容器呼应。</li>
+  </ul>
+</div>
+
+<!--pnid:MDc3LwC7Pohq7Wp4m7puKh--><!-- ============ 1 色彩 ============ -->
+<h2 data-page-node-id="0RJvzaNWrtOdM7NPHWER8A" id="s1"><span data-page-node-id="bUDhh7BUTpoLZJazGumCLT" class="no"><!--pnid:49CizV5JXnpebXrAnM23xw-->01</span><!--pnid:3pSuPlKtWS3tPiyX55YwPN-->色彩系统</h2>
+<p data-page-node-id="TfivTdnVW7s1X1GqpRZLdV" class="lead"><!--pnid:la84xaqBG6Qz8mdLgCEFat-->所有色值可直接落地为 CSS 变量（本页面 :root 即完整变量表）。</p>
+
+<h3 data-page-node-id="fKKxvOCOtfPqQMZsr7EBJQ"><!--pnid:bLzCuwyghnwkgI9ZMcO2Rd-->1.1 主色 · 自然绿（Green）</h3>
+<div data-page-node-id="EZpYoXnRPuzAezmPAPgYMD" class="grid g4">
+  <div data-page-node-id="oTsjzBBLcRsKKBxShvzFPc" class="sw"><div data-page-node-id="xLIUeVMHvCD0Z3rWTmqvQF" class="chip" style="background:#EFF6F1"></div><div data-page-node-id="WiDLtvpP6RquEb6d1oYYQn" class="info"><div data-page-node-id="dipO98VSUhlBXeAco7uhzU" class="name"><!--pnid:r8vPfdq4eUkGmNckyjeyTV-->Green 50</div><div data-page-node-id="dKcHtajfdXjqbTFR4UOwjb" class="hex"><!--pnid:wQd4Tq9QKU1l1XX23f0Q5A-->#EFF6F1</div><div data-page-node-id="O1REGZUFulAb9yJIbFvxZB" class="use"><!--pnid:77lLnY6i63n68YZuSG09u9-->浅底、hover 背景</div></div></div>
+  <div data-page-node-id="XRv1xwQbrzltwWrXiAPvFf" class="sw"><div data-page-node-id="NTjoAZ8NOhbhuzGsHeNCy3" class="chip" style="background:#DCEBE1"></div><div data-page-node-id="q91eP40EL8waQtg9OJH8ri" class="info"><div data-page-node-id="xCI6FsixVdbibFu5eVq0Gp" class="name"><!--pnid:htfUJdRanYLfkkKwHstESB-->Green 100</div><div data-page-node-id="IRztviRPox3rNpPRiwksU4" class="hex"><!--pnid:N03RKXOPhkeVgOxIX3eEQK-->#DCEBE1</div><div data-page-node-id="tC6jNRhPxct7tYPzVo9mzu" class="use"><!--pnid:6ygFuDo0C5jmhbKrQNlB91-->次级按钮底、标签底</div></div></div>
+  <div data-page-node-id="wrultV5n6JIZj3FGSHXe8u" class="sw"><div data-page-node-id="AG0IamdDiBYqMHD8tthD6p" class="chip" style="background:#9CC7AE"></div><div data-page-node-id="IORZw9wf5RHzPHpC1MZ1jm" class="info"><div data-page-node-id="ZxYGN2oZwR4nQJ9EXctCOq" class="name"><!--pnid:UQ2xLqhOKtWxG0qYNWP9oa-->Green 300</div><div data-page-node-id="yMSIlS19HXrv9uqRQuOPnh" class="hex"><!--pnid:6NyMfBAM65vF8a14kPpQMa-->#9CC7AE</div><div data-page-node-id="y71BpFbnDozOAZ4StIQ62A" class="use"><!--pnid:swDfLc2CdYzOiyo4UqQ9fq-->描边、聚焦光环</div></div></div>
+  <div data-page-node-id="3zvnuLc2It3KIQbowFc4V6" class="sw"><div data-page-node-id="c7VVFylplZnDCh5dh07k65" class="chip" style="background:#4E9A6C"></div><div data-page-node-id="Ijv3EripsA2lyrsQBYPIKy" class="info"><div data-page-node-id="zN4KnFCbx4oBzjwl73LJG4" class="name"><!--pnid:75w6u0U4BF4ZFxWsPlEcYo-->Green 500 ★品牌色</div><div data-page-node-id="YUIsx8dWEbBO744DLN91kT" class="hex"><!--pnid:cOdzwV0LnCvvGIn7LIJ8Z3-->#4E9A6C</div><div data-page-node-id="iUFIQpEoFGIXY1lawA1PZF" class="use"><!--pnid:4nECV9nViZK8dQY3dW71Qg-->图标、选中态、FAB</div></div></div>
+  <div data-page-node-id="tCzCtYWh1zIpnjLhrBqeUX" class="sw"><div data-page-node-id="h1mkJVh8FRKpX5bWzsC2rE" class="chip" style="background:#3F8759"></div><div data-page-node-id="AlsSEZjzBxf8TTR1KYPEM4" class="info"><div data-page-node-id="XVYGRE2Kp6IvlgS36UdImI" class="name"><!--pnid:1vMHm0WcyIbI1dkLnVUzUl-->Green 600 ★按钮色</div><div data-page-node-id="HfwUH8pBJLaN3qzNSApdG5" class="hex"><!--pnid:zhoIdCuDNK0PUT3sP11Y04-->#3F8759</div><div data-page-node-id="ZjGBGuE340rkwaffA0dO5b" class="use"><!--pnid:DyWIEAf1U8IO85oo6WYS6H-->主按钮底（白字对比足够）</div></div></div>
+  <div data-page-node-id="pwVK3FOBLUMifPeavH5nya" class="sw"><div data-page-node-id="9vB9LvGSrDiuIi9C2MX166" class="chip" style="background:#2F6543"></div><div data-page-node-id="d50VhFUBP7RKm6fhgwmG1H" class="info"><div data-page-node-id="GNtKnN6udMsQMaMbkUuBtG" class="name"><!--pnid:QbUJe6mnAxVAt5vKH4eCFl-->Green 700</div><div data-page-node-id="R5sjv54KOiaKCNepv6N9xw" class="hex"><!--pnid:oZmhW690aSteFKPDiHtGPl-->#2F6543</div><div data-page-node-id="sP04uyuAZ4GN0JlFqBEqOu" class="use"><!--pnid:4JENDe67OLNaJ6cb7zACUv-->选中文字、强调标题</div></div></div>
+  <div data-page-node-id="ogRXvqrp3jf6kDQwEaH3Hf" class="sw"><div data-page-node-id="ttiUoP4JdIQOb1dzLVJ3Xx" class="chip" style="background:#1E4030"></div><div data-page-node-id="GMh3AX5U8xY0Rp3NJuEOdz" class="info"><div data-page-node-id="GE9jtSo6UxAi7Kh9FT3Asy" class="name"><!--pnid:M9ZRRoupClwIFDwRcqz3Sx-->Green 900</div><div data-page-node-id="qQMKB0kf5UXrp83xZejbyo" class="hex"><!--pnid:RkfzDd5mOIsI9UWp0IHxQs-->#1E4030</div><div data-page-node-id="vAnOhyLH4G2jWWHCWjBmJI" class="use"><!--pnid:UcM7PPst2hJ9yf9KwIdnX6-->深色强调（可选深色模式主文字）</div></div></div>
+</div>
+
+<h3 data-page-node-id="nPIp3w55oeCtNudROhJNcj"><!--pnid:tkfDjKxUHONWqlzrbZ7zAK-->1.2 辅助色 · 自然系四色</h3>
+<div data-page-node-id="gqvAU9jMyYo2XBsafpXqYp" class="grid g4">
+  <div data-page-node-id="HPGzy36BqBnVWboXfiFeY7" class="sw"><div data-page-node-id="gEfGBc05mMQ7CGSbMm6MnA" class="chip" style="background:#E8A93D"></div><div data-page-node-id="GrLidT8QGA025JqbiQAUMY" class="info"><div data-page-node-id="Fr5bAMlEKDuGV66Qms0AmP" class="name"><!--pnid:439BjTReZW4aePmoo74uqD-->阳光琥珀</div><div data-page-node-id="Ee6QqPdTY7JgWpU2TyWzYn" class="hex"><!--pnid:4XiN8c1l5OfUl6Zdmny2G4-->#E8A93D / 浅 #FBF1DC</div><div data-page-node-id="Sw0JbtOh7aX1vWOwQRVlTC" class="use"><!--pnid:TRiU1ujwznVHaZIwY70xsq-->日历模块 · 提醒 · 心情标记</div></div></div>
+  <div data-page-node-id="ugRFv1EfY0jD3SvR7yjW1K" class="sw"><div data-page-node-id="vacFB0WhNX4X2W9oXkT6Hw" class="chip" style="background:#6FA8CF"></div><div data-page-node-id="TXGiuftUzyeud2YG2vDOyX" class="info"><div data-page-node-id="PYdyY3QLkvIOfmttcZa93W" class="name"><!--pnid:gjMs6eilRIdVqMKYfJSDwj-->天空蓝</div><div data-page-node-id="ITXC4S0wZsIEzt064YXdy6" class="hex"><!--pnid:3l5pEJOd36V7TwkPloFqrs-->#6FA8CF / 浅 #E8F1F7</div><div data-page-node-id="xOkUNRCQzQQFv2lRrR0ihf" class="use"><!--pnid:FsgI61lb7mcsqvR1lq1XE9-->日程信息 · 链接 · 中性点缀</div></div></div>
+  <div data-page-node-id="FhA27gXjUBClSoWl6pzw8U" class="sw"><div data-page-node-id="9h7IC5Gj1p0T28N6ohbTK1" class="chip" style="background:#E08E8E"></div><div data-page-node-id="dAaTR50O28VJ56oyO4xOCq" class="info"><div data-page-node-id="r0YtJHlWLZKhnkOgZqaHD2" class="name"><!--pnid:m6waZEDGRKSXuC3Pl0S0OJ-->花粉粉</div><div data-page-node-id="OLS36TwOyR3IATCyRS51h4" class="hex"><!--pnid:meK0yru1sX72uS8i86naeH-->#E08E8E / 浅 #FAECEC</div><div data-page-node-id="X4U8nhrzsMg56pgudF22xs" class="use"><!--pnid:eCj5ElDD7VCZAF6LAZlQGJ-->灵感模块 · 创意标记</div></div></div>
+  <div data-page-node-id="odzzsVG1EFHWWMis4WzKfq" class="sw"><div data-page-node-id="VDb9y7NNT4Uxqw7QDXtfhi" class="chip" style="background:#8A7968"></div><div data-page-node-id="4onqEFV9Gfdms6RhMzGvpx" class="info"><div data-page-node-id="1dCAmsHW6sQwCHuIDs6to7" class="name"><!--pnid:Ccmg2bMyQgUgSPn06a4gEA-->大地棕</div><div data-page-node-id="taM8tsCnBXenaEy1sEvfih" class="hex"><!--pnid:oldZxIIbm9mgrGMbIZ8Zih-->#8A7968</div><div data-page-node-id="ZY26XR7GdZvFL5FTEDaTWj" class="use"><!--pnid:ZztZllVBeiqM9iCaYmFXOF-->装饰图形 · 分割线点缀（慎用）</div></div></div>
+</div>
+
+<h3 data-page-node-id="oqlxNNpnwgP3PZZpwfQstN"><!--pnid:8YDlQjW0eQFVFcrfDV9QsJ-->1.3 功能色（语义不变，只调色相）</h3>
+<table data-page-node-id="0F96jcXT5dT666qW1lxPae">
+  <tr data-page-node-id="SplQKLSYrZmlBuQBUHXK8y"><th data-page-node-id="EfU57h2p2Di92afD77JCPv"><!--pnid:LwDE9bPlH6EwKo63Mo90oW-->语义</th><th data-page-node-id="Jq8twb28ermFsV0Z176tNc"><!--pnid:MqUpWMAKAumjwYsK9LX29D-->色值</th><th data-page-node-id="N25qcErbmPKr6GHUGDaKPG"><!--pnid:bGjw3DzB08ECMJHWzL0U0H-->应用场景</th></tr>
+  <tr data-page-node-id="emXqcCSula8haCmTojjRTN"><td data-page-node-id="VRVfMmf22XE1CUU43crB8o"><!--pnid:EA0AUzzpmPQ5276gYpWqo6-->成功 / 已完成</td><td data-page-node-id="H0lVlBQ2j0ABLhkBxQ65cs"><code data-page-node-id="gxjaERR182yGvQJiwBgqcQ" data-pnid-children="PUtXecg7t0dOSBOGLRc60i">#4E9A6C</code></td><td data-page-node-id="zYxqo6f8boQ6gQ30pLDnO8" class="dim"><!--pnid:x2mREFkYvlpR2GFEqCBKj1-->完成任务勾选、完成态圆点</td></tr>
+  <tr data-page-node-id="aXWpuWbFr2gI7kQraZl366"><td data-page-node-id="r3oADoT4MWwxldToLDriR6"><!--pnid:6K3egn7Mm4fZ7d5Zt86h19-->警告 / 提醒</td><td data-page-node-id="ThojkgDVpvVWqFohPS97eO"><code data-page-node-id="ubEiMz19XJlwVeONVLODpm" data-pnid-children="U2KkXsczQ35dJK78m93RJe">#E8A93D</code></td><td data-page-node-id="WojjcOmxeC4EX4JdYElSvS" class="dim"><!--pnid:chQBtOg4dqDo2o9gqscg4o-->到期提醒横幅、授权失效提示</td></tr>
+  <tr data-page-node-id="Ov9UvapPAKjusZk0CNy1rV"><td data-page-node-id="bqSMMcEfBWwaq2Yv2k1PYY"><!--pnid:LpJyaKWisxgYi7Ls2o2jXd-->危险</td><td data-page-node-id="P9PbJxNDvdhCecmxP4rP2k"><code data-page-node-id="HMtyeS5uSb4gPOq4zcEyTS" data-pnid-children="WYlDZa6hvGJnHbz0pdaY92">#C96F5E</code><!--pnid:lujTrvNncEYKonijCO1cwx-->（底 <code data-page-node-id="BsQ4Q62eeQroBjSg9wv3xk" data-pnid-children="mpB2MkLXjtKRBZ1nE73NHM">#F9E9E5</code><!--pnid:7kfNjjQ04eIN6uTQwjlJrQ-->）</td><td data-page-node-id="tuYj6nKhdNcGMyesRKkwM7" class="dim"><!--pnid:wVqFta6YDi5jLtkAgmhGpY-->「清空全部数据」——砖红比纯红更贴合自然系</td></tr>
+  <tr data-page-node-id="txy6WYnyIWPqpctHVnMGYz"><td data-page-node-id="OPnlWdLgEOKd3rVYTNV7m1"><!--pnid:EGH4JDdbEiD2Xojufbmbuo-->信息</td><td data-page-node-id="tzdsg7dMk2qHK3EoADOOQm"><code data-page-node-id="eR746baH1j2tvH97GkuQZ4" data-pnid-children="MjR00Gje7rv5CVLoBxYWoS">#6FA8CF</code></td><td data-page-node-id="sDPF84Z1NGUhEHnmyudREu" class="dim"><!--pnid:WPTgF1oA8yFeY20Z47QvQr-->说明性提示、授权/重试按钮</td></tr>
+</table>
+
+<h3 data-page-node-id="MejJomBoD35TelYK4sXVPu"><!--pnid:g2upSSoPvOpYgYuya4tfH9-->1.4 背景色板</h3>
+<div data-page-node-id="5B01ljPvPNJTMmP86tvfr2" class="grid g4">
+  <div data-page-node-id="9uGHfgSQdzui3L0nsdZzHm" class="sw"><div data-page-node-id="qhR1I9xNNk2rSCPorNNXS0" class="chip" style="background:#F7F5EF"></div><div data-page-node-id="luuRFl63QhhZGwAVAC9kZ3" class="info"><div data-page-node-id="YCEEidYL1rwRkMSCE3SkIb" class="name"><!--pnid:zhoZ6JEViJTsF3aYdi9xCI-->页面底 · 暖米白</div><div data-page-node-id="Uza4hCp2DhMPFTtgmmQDEx" class="hex"><!--pnid:Dsf3DEiPPOdK1mqXIr0LJF-->#F7F5EF</div><div data-page-node-id="UJKLx7YaNHF4akXmN3lbV5" class="use"><!--pnid:xbrt1MsZAvzzAWPkGpbdBG-->全局背景，替代现在的灰米色</div></div></div>
+  <div data-page-node-id="6bRVN62fK4lHcNwnCZiUl6" class="sw"><div data-page-node-id="K8OYWHdsqNBIloEF5GRzGs" class="chip" style="background:#FFFFFF; border-bottom:1px solid var(--line)"></div><div data-page-node-id="JSqMS4f7HG2pmMhGFQFX2A" class="info"><div data-page-node-id="dBGWFM2edydreKoDMB5tTN" class="name"><!--pnid:yucOUNsaB2cQ87WffUxEWG-->卡片底</div><div data-page-node-id="keyI1oOZssyJe3FJZAJLjo" class="hex"><!--pnid:KVpfoS9OuiyrrTF8FQbQCB-->#FFFFFF</div><div data-page-node-id="dFRvdOnX1DoGnfj2OnSTUJ" class="use"><!--pnid:VD4C5BvRw7ydx940dSaSNn-->弹层、抽屉、设置面板</div></div></div>
+  <div data-page-node-id="vyDk52YWrATECAoghiFdRb" class="sw"><div data-page-node-id="fW9LFnA9E2SZMGlq4kvGOD" class="chip" style="background:#F2F7F3"></div><div data-page-node-id="nO3zVLSs7iYrpqadPgVf6n" class="info"><div data-page-node-id="AUHGcjb5KhoFGIvD4C6ThF" class="name"><!--pnid:GdheQsdF2vA9kKMzFcB4UU-->浅绿卡</div><div data-page-node-id="4VPDy8janc2uO3uef4Q30B" class="hex"><!--pnid:8t1iOmT1sJPjMwn5jn0vDa-->#F2F7F3</div><div data-page-node-id="MmnBQ3EyFLzT6DG6OVHy2Y" class="use"><!--pnid:lFcnqxBLKNp8XQUc3YaUqw-->内嵌卡片、空状态底、输入框底</div></div></div>
+  <div data-page-node-id="YEsrDgLI3gQChNoIz5TeMG" class="sw"><div data-page-node-id="MUgbDQJVGGji1ZxcQbbsf4" class="chip" style="background:#E8E5DC"></div><div data-page-node-id="UnHryBlnzxs01KxuJiVHsr" class="info"><div data-page-node-id="z723KeMY65Sz2rKueJpSs3" class="name"><!--pnid:rnfnlRKRUcCJciS2ctsewS-->分割线</div><div data-page-node-id="W2myKKrtayIzMwIPWKZYMJ" class="hex"><!--pnid:BHTbP9llQa8DDZkSNxHjg8-->#E8E5DC</div><div data-page-node-id="VWmN9lFgDvqZezhgaRiLzO" class="use"><!--pnid:SvgC8SzeDuOGRMmhktGRab-->1px 分隔线、描边</div></div></div>
+</div>
+
+<h3 data-page-node-id="TEglf57345N9CIJlNj1DD4"><!--pnid:Ecg4sQcuyaLraGLzhxEamJ-->1.5 文字色（暖调灰绿，不用纯黑）</h3>
+<div data-page-node-id="kDYzWIK5OHcUFC8xxYlvCY" class="card">
+  <div data-page-node-id="ujFGfuvunvPJPFBddqOCk2" class="txt-sample" style="font-size:17px; font-weight:700; color:#2C3A31"><!--pnid:bb63DVrvKeXcCiKjOQ0cXp-->一级文字 #2C3A31 —— 标题、任务正文、按钮白底场景</div>
+  <div data-page-node-id="0XBcXmt1zJLKkLoqVnRCOJ" class="txt-sample" style="font-size:14px; color:#6B7A6F"><!--pnid:ukL6twonJDk31gHz6FMaZQ-->二级文字 #6B7A6F —— 副标题、卡片说明、图例</div>
+  <div data-page-node-id="OjMEMRBkjnOWyrbRWRIPSM" class="txt-sample" style="font-size:13px; color:#9AA79D"><!--pnid:3Jf2GB1HZgWSQxu8f1HfcZ-->三级文字 / 占位 #9AA79D —— 空状态提示、输入占位、禁用</div>
+  <div data-page-node-id="LQMOotbMCvjWhYeUWhY5jO" class="txt-sample" style="background:#3F8759; color:#fff; font-size:14px; font-weight:600"><!--pnid:LZPP3AERNhyQXH5hmULjqh-->反白文字 #FFFFFF on Green 600 —— 主按钮、分段控件选中项</div>
+</div>
+
+<h3 data-page-node-id="Xa0VWehblkihVm66ccUeBp"><!--pnid:Eqi1mvM63JFGCopZM4ePaD-->1.6 三大模块色彩分配（核心规则）</h3>
+<table data-page-node-id="aBq3p0S9a5aXgd1kqpwutt">
+  <tr data-page-node-id="NuSddLzsNzhFOgde299tHJ"><th data-page-node-id="uBwHmIHz26yiaq3dLGPF8B"><!--pnid:8OSdejMa85uipFSlG5Wx3v-->模块</th><th data-page-node-id="GP3gCROOcn0WP7C2tnmsg9"><!--pnid:QW1w3rEP6tPSo8FSzow3Jt-->气质</th><th data-page-node-id="YHlzzp0e6svv0MjOiulB2F"><!--pnid:2lGHVzorg2OA4kBfHF9k95-->主角色</th><th data-page-node-id="WFUID3ySyqTbamvxHGj0NT"><!--pnid:cFNoAdXml4SpJCoYwYLr4m-->点缀用法</th></tr>
+  <tr data-page-node-id="uuS1lngbmwgQz1qJE1swCe"><td data-page-node-id="ZizcEcW770HEmPUOwOr3Nv"><strong data-page-node-id="gtpijeLioIQ1weZSQ2yCzO"><!--pnid:522PuDgKqugKSCO4IDclIc-->快速记录</strong></td><td data-page-node-id="xtIXqMic3jAVM3CGNfOLEU" class="dim"><!--pnid:eYrbLr4J29shaKyX97dtvp-->高效便捷</td><td data-page-node-id="wZhslXTQGZ1c5D1eJBXfpc"><span data-page-node-id="1uTdV4LGI04xoBjBg0ctbT" class="tag"><!--pnid:VtpLufuWMn2XgQwKnTu7Io-->自然绿 #4E9A6C</span></td><td data-page-node-id="IV3bSRqkiCNfz85nhekOfk" class="dim"><!--pnid:41W6bAT3TMxPxDOdPrP7S4-->FAB、主按钮、segmented 选中——绿的浓度最高，传达"按下即记"的爽快</td></tr>
+  <tr data-page-node-id="hvigPAOFpgvRveiEv5ZbSm"><td data-page-node-id="mFESSDPAW4cPYi8vi2uTgA"><strong data-page-node-id="yEHw5QZ6rhq9PMmP58sVJW"><!--pnid:EYiTY5wH4ymqrSd3DFUfkA-->日历</strong></td><td data-page-node-id="kNGZMxqOMYbv0ciPPzcSBS" class="dim"><!--pnid:FpTZ7EIHn6XIU4OovSWa60-->时间管理 · 日程查看</td><td data-page-node-id="Uvl8TBQ32uRDomEGA0YrPq"><span data-page-node-id="tgTNOqFbjqwLX1up94Jech" class="tag amber"><!--pnid:mSxQw5XX4dwBvJC0ZiiqmF-->阳光琥珀 #E8A93D</span></td><td data-page-node-id="eetW0V3golhXMCdVieeTQI" class="dim"><!--pnid:aT0pdmYD1ee71Qkij5MGZl-->仅用于月份导航 hover、今日以外的"有任务"圆点、提醒横幅——像日程本上的荧光标记</td></tr>
+  <tr data-page-node-id="AXLUOQxSvrEMJz6Z5Ogjhv"><td data-page-node-id="atZmvlBa825wkRP0vtPWEH"><strong data-page-node-id="Gh25zW2fkj0tonbZNWKXyB"><!--pnid:AwVBryteXKIU8poVFQWNrk-->灵感</strong></td><td data-page-node-id="7jDlYfB8d2m4OA0F5lSIil" class="dim"><!--pnid:JiNOcO4H9YH1XYnUeQF8cN-->创意收集 · 自由表达</td><td data-page-node-id="ZIlPufXOqT4cXlBuYQGz4V"><span data-page-node-id="BNf4FUW9oA1gSjBFWlqJ6O" class="tag blossom"><!--pnid:Jm1pLs9phfvjoOKSSiFODN-->花粉粉 #E08E8E</span></td><td data-page-node-id="Wm0t2uIbvQHBHcfjRmEzGv" class="dim"><!--pnid:wJekdErueqkNcbZ3x7Ktuo-->灵感页图标、灵感圆点、灵感标签——一点"开花"的暗示</td></tr>
+</table>
+<p data-page-node-id="5q1RRxM8gpQnXIuliiPVRP" style="font-size:13px; color:var(--t2)"><!--pnid:nQN66BmA8Dn6HvXarzciuy-->⚠️ 规则：辅助色只出现在<strong data-page-node-id="CtWhrCi9T7Z8PRlHWHaNBO"><!--pnid:82KQ5pmnhpDDwZSE34T2gB-->圆点 / 标签 / 图标 / 小面积高亮</strong><!--pnid:pSrqdrchzlRg9DUeiK7v5j-->，任何模块的主按钮、主选中态一律用自然绿，保证"这是一个整体应用"而不是三个应用拼的。</p>
+
+<!--pnid:2SbIbJzPdaxbKo8jmRB11t--><!-- ============ 2 图标 ============ -->
+<h2 data-page-node-id="S9hmV257lFrRedqToI1gRS" id="s2"><span data-page-node-id="XedBlxoVJoLktWYAAeTxvj" class="no"><!--pnid:B8mfQhscaNwhpyjB1bNANO-->02</span><!--pnid:2aUlQf0vFiHfjHftg7erDF-->图标系统</h2>
+<p data-page-node-id="cNRnd0p6qKnpq3Ijl2bmAn" class="lead"><!--pnid:7aDkYL9URWzVxYcRTnukKr-->风格一句话：<strong data-page-node-id="7Kvi6kh1VltVfXK5rQDu5A"><!--pnid:JnHmDalXQDWHFTsOLvUIs2-->圆头 1.8px 线性图标，24px 网格，转角全部圆弧</strong><!--pnid:8tetPgSaSJdCnokKlXy3th-->——和全局圆角是同一种语言。现有的 emoji 心情保留（亲和力是优势），但图标全部换成统一线性风格。</p>
+
+<h3 data-page-node-id="M8XtnlEB6k9TR7PSVfMYUh"><!--pnid:8eUk3PPmL4B189FUwEHzZS-->2.1 造型建议总表</h3>
+<div data-page-node-id="msDlJVvs1M3rLzXYV3JJEK" class="grid g3" style="margin-bottom:24px">
+  <div data-page-node-id="yXkyrcMdR8F0boBS5dzb98" class="icon-cell">
+    <svg data-page-node-id="3lzTIYoSf1XN7bDwucjzSt" viewBox="0 0 24 24"><path data-page-node-id="zcRA5c6GAnmBilBVgOgrM1" d="M4 20c1.5-4 3-7 5-9s5-4 9-5c-.5 4-2 7.5-4.5 10S8.5 19 4 20z"/><path data-page-node-id="UKX84Z38Ket7ittZz9PiDP" d="M4 20c2-1 4-2.5 6-4.5"/></svg>
+    <div data-page-node-id="8GdNT1Ien7QefIJm87xX7o" class="n"><!--pnid:0VvMK8IC93iVBl1gMcOSMm-->快速记录</div><div data-page-node-id="xPbxiMZ5ngmt17MjgMeWlm" class="d"><!--pnid:dGADgb23BPMQFh0n9Cgpaj-->羽毛笔 + 叶片结合，一笔落下的速度感</div>
+  </div>
+  <div data-page-node-id="nVRE68o1qiPdHnOkt2eZo9" class="icon-cell">
+    <svg data-page-node-id="4RKcqO1rBDCkuMGPyEjIB2" viewBox="0 0 24 24"><rect data-page-node-id="oIFo16jRYy12ELauPACLAU" height="15.5" rx="3.5" width="17" x="3.5" y="5"/><path data-page-node-id="UkiNn3uGKa5hi8Ge18Tz8J" d="M3.5 9.5h17M8 3.2v3.4M16 3.2v3.4"/><path data-page-node-id="hYxFHpEKEC9Oeslu4hJXln" d="M8 14.5c1-.8 2-.8 3 0s2 .8 3 0"/></svg>
+    <div data-page-node-id="7Il9S98RyyXSCh94MtGSMG" class="n"><!--pnid:N3OLIhfwz3NsTWSkZGmxex-->日历</div><div data-page-node-id="KAy3Ra94y3xCqaluLxPlFn" class="d"><!--pnid:Pi6f9wQDKkU9afaIxSBq9p-->圆角日历 + 内部一笔"微笑曲线"，弱化严肃感</div>
+  </div>
+  <div data-page-node-id="JNbYSZc5SgeoHbVsqRixti" class="icon-cell">
+    <svg data-page-node-id="m5pJKPTu3AYVv7al7kVLkJ" viewBox="0 0 24 24"><path data-page-node-id="qQ0rblU72IpcgFoz34uUxe" d="M12 21v-7"/><path data-page-node-id="kvfHtOe1y0zibLBNyhH4rw" d="M12 14c0-3-2.5-4-4.5-4C7.5 6.5 9.5 4 12 4s4.5 2.5 4.5 6c-2 0-4.5 1-4.5 4z"/><path data-page-node-id="umsFbS8atKVm4d7FR9YACG" d="M9 21h6"/></svg>
+    <div data-page-node-id="VgYI9zMc4e3WhErkZwNgMX" class="n"><!--pnid:bd0VP7HHSYHYfGuciItCpk-->灵感</div><div data-page-node-id="YYWeO5bC1OBV1ZCWbdqoXV" class="d"><!--pnid:R5SNdKUpYu95R0ZRpr1W54-->灯泡升级为"灯泡里长出嫩芽"——创意发芽</div>
+  </div>
+  <div data-page-node-id="vfLJr8O5iyjLoeIvZkTo3N" class="icon-cell">
+    <svg data-page-node-id="Hm04wo9jk7ksqaASWj5vZG" viewBox="0 0 24 24"><path data-page-node-id="tWzj7GrvyrvnuGMtaBOZBG" d="M4 7h16M4 12h16M4 17h10"/></svg>
+    <div data-page-node-id="329WTRL28C2KCrJGponmps" class="n"><!--pnid:s9u8vDNIwfbBxXkTylYGiU-->菜单</div><div data-page-node-id="T4GUjuPhhVGMRo5rSmP4vA" class="d"><!--pnid:gOffJXarz3teQnnfwMMPaj-->三条圆头横线，长度 16/16/10 递减</div>
+  </div>
+  <div data-page-node-id="R7ytTbGXx7s60XNPk19gex" class="icon-cell">
+    <svg data-page-node-id="19xebmQPldgRraAnr1qyvB" viewBox="0 0 24 24"><path data-page-node-id="v2L3DyK1uYI9y5RIpkLBsr" d="M12 3.5c3.5 4.5 6 7.5 6 10.5a6 6 0 1 1-12 0c0-3 2.5-6 6-10.5z"/></svg>
+    <div data-page-node-id="eg72P5SiZywZMhiwMLHtKl" class="n"><!--pnid:tcavsOGG2sYtocT8Nvo9bX-->到期提醒</div><div data-page-node-id="wW7qBsazeA1kjLXcqwGTcg" class="d"><!--pnid:d15L4WxTh1qWNRLSQCbEs7-->水滴/叶子形轮廓，替代机械铃铛</div>
+  </div>
+  <div data-page-node-id="Hyq5JVmooWBkZuEpn1Ot0L" class="icon-cell">
+    <svg data-page-node-id="2J8KKtgUOu2q9H8kkDKtLn" viewBox="0 0 24 24"><path data-page-node-id="5qpdbOfd6h9Rnx3jHoccbS" d="M12 15V5.5"/><path data-page-node-id="qX4AS4n01OjpkVrb1W3ZJe" d="M7.5 9.5L12 5l4.5 4.5"/><path data-page-node-id="z9ZMhokFhdwIoy7OsdQdaG" d="M5 15.5v3A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5v-3"/></svg>
+    <div data-page-node-id="cLcVau5ugHUdspmg1tmWV1" class="n"><!--pnid:aM6HUEylJmnwwKQyfRiUyp-->导出 JSON</div><div data-page-node-id="6jBfsUWEnA2Qzmri6vrPD1" class="d"><!--pnid:p1T1jFRvnLM0DAKWA4E1Ga-->向上箭头 + 托盘，导出导入共用一套箭头语言</div>
+  </div>
+</div>
+
+<h3 data-page-node-id="PRyKkxPd58I7v0BPQHAp4C"><!--pnid:vscKVkb39IJs7os6btf742-->2.2 心情选择器（emoji 保留，容器重做）</h3>
+<p data-page-node-id="9tnVQfHMkeDGbg045C1Gi2"><!--pnid:wjp1awSUZP1A6d0JNiIaws-->五个 emoji 本身色彩丰富、辨识度高，是"治愈感"的重要来源，<strong data-page-node-id="Uahg4AJxPUl07fJehO1iHX"><!--pnid:7kM7fZinniAaHO9lKIvzja-->不建议换成线性图标</strong><!--pnid:GOLLCr7wClRNjbEmgpsF45-->（会变成"体检表"）。改造点在容器：</p>
+<ul data-page-node-id="t2e7wtHOYlMlJQRSPVcsiJ">
+  <li data-page-node-id="X9l10JWgUpZTYy1AzlXCHe"><!--pnid:UEaw1YCy9kveom4na2G58V-->未选中：浅绿卡底 <code data-page-node-id="KAXLiLnzBe78R9RRojYjbf" data-pnid-children="HipxqmU1pEKXNIOHvmCFLr">#F2F7F3</code><!--pnid:StcLhRJ5Xpv0WMDmD3s0GW-->，emoji 原色；</li>
+  <li data-page-node-id="w95gu6Xe3IZCYgEgzkuXzX"><!--pnid:3yqsHBw7lU3OzeAIb9y54j-->选中：绿底 <code data-page-node-id="YKlosY9d6ATHmvaYhM8vQp" data-pnid-children="eJpMhCISjrSqzQMarT5yct">#4E9A6C</code><!--pnid:2KhVq7XyKP5tVaSNdIs3EG--> + 白边 emoji（可加 <code data-page-node-id="Z9MH9JopAKZZyrrGYYoQss" data-pnid-children="eKAFv6wPEEO7VL2oua8tYF">filter: saturate(1.1)</code><!--pnid:fsbfFWrZW0ktYDAvIxlUgc-->）+ 轻微放大 1.04 + 柔和投影——形成"被阳光照到"的感觉。</li>
+</ul>
+
+<!--pnid:RjHp5iaAY9hEHN91Ia11BJ--><!-- ============ 3 页面应用 ============ -->
+<h2 data-page-node-id="6jj9SwAILv37yI6pi1twvK" id="s3"><span data-page-node-id="gdicTOp7s8tVBP0VOtxci5" class="no"><!--pnid:piKdSonwdhbKkcyv6odNo0-->03</span><!--pnid:MTmKppg6g1wwtFcX9Gkr4Q-->各页面色彩与图标应用</h2>
+
+<h3 data-page-node-id="Af6Td8bl3rvOXKoOm060CQ"><!--pnid:2foo0gNpuaF1Dn2s7lhWnm-->3.1 首页「今日」</h3>
+<div data-page-node-id="SWKV2jh8zkAsnUirz2FI6B" class="two-col">
+  <div data-page-node-id="epCnFoke3kZRGxDLGr2CdM">
+    <ul data-page-node-id="1xEg2uHaJ1yABmrqrYEZGM">
+      <li data-page-node-id="dzZyDI74TBHENnXpI1Y6ef"><!--pnid:Wc3auRUrOFAYKxlTQwX8r7-->页头：标题保持居中，副标题「记录任务 · 心情 · 灵感」用三级文字色；右上角菜单图标用 Green 600。</li>
+      <li data-page-node-id="LKBCKaA8bWb2AFED0z9n5q"><!--pnid:fRzM8KT5GCnT3GuzMO0j75-->日期标题「11月2日 周一」：一级文字加粗；下方副文案二级色。</li>
+      <li data-page-node-id="iZcBNyxHgKtAfIC7YdkwcG"><!--pnid:a0oQALnSKjNmI9QstYf52s-->「今日心情」标签：Green 700 加粗小标题；五个心情 chip 按 2.2 规则。</li>
+      <li data-page-node-id="mnDMjCugbsk8BPCmpWnXgp"><!--pnid:XwAj1HIErdIZukWHQI5ACF-->心情备注输入框：浅绿底、无边框，聚焦时白底 + Green 300 描边 + 3px 绿光环。</li>
+      <li data-page-node-id="EPIZs3YYpM7DlB20tf9ut7"><!--pnid:Gq4nMiuMtOyj05B5H09cgr-->「今日待办」卡片：白卡浅边，计数 <code data-page-node-id="WzUwjvNl4K3Pcn8qCD306o" data-pnid-children="iOBWDTd7WmuMn4ScD86tOY">(0/0)</code><!--pnid:FzeOfATEGMiK2iPSaoGgot--> 用 Green 700；空状态文案三级色 + 一个小叶片装饰。</li>
+    </ul>
+  </div>
+  <div data-page-node-id="qzmm4GZazHZBZgESegByHC" class="phone">
+    <div data-page-node-id="GDTrvDDRj5tYGHXwf8PBsI" class="p-head"><div data-page-node-id="0uYXij1cqagWaqeUxyLgwz" class="p-title"><!--pnid:2vq2lONs0ZIjKIVSWd0F1e-->灵感记录</div><div data-page-node-id="0QXkoYiXg0GyQyyY79DEfx" class="p-sub"><!--pnid:0HTh8w9PM7D9HLcGY6mhjr-->记录任务 · 心情 · 灵感</div></div>
+    <div data-page-node-id="Jm0oDo5Dy6ZsNBLU3p76Yd" class="p-date"><!--pnid:J5VkxsXOXjWSU9qFoIh1zk-->11月2日 周一</div>
+    <div data-page-node-id="RCIvLvzOY8jikNDSjYcHrj" style="font-size:11px; color:var(--t3)"><!--pnid:DWHA3ZhJgDttB1L4Ec3qcN-->今天的灵感与计划</div>
+    <div data-page-node-id="eJLmnXxQXvqMLgYm5CM0qb" class="p-label"><!--pnid:QWPaXzzzQS46FtOgYlPsxN-->今日心情</div>
+    <div data-page-node-id="qBELYxLwAEigDJLfefoq5s" class="mood-row">
+      <div data-page-node-id="4dynDxpXEIwcZnCmsPuqDW" class="mood on"><!--pnid:8HWA3e7wZ7PZBLIFOko9b7-->😊</div><div data-page-node-id="D46RaZk8azPMTux05n0QWB" class="mood"><!--pnid:kO9r5gOvnEZLbCn0iJY6S3-->🙂</div><div data-page-node-id="UCcQssbJdXjkYzMn9bchCa" class="mood"><!--pnid:XFZ51WjBsWbOf5hT6T653G-->😐</div><div data-page-node-id="Za2oMToZ2e0oBGUQgKhJcS" class="mood"><!--pnid:RAoXsQyAomsKfpLbwMhKJi-->🙁</div><div data-page-node-id="3B2acINE8WlgwkG9EeX4ug" class="mood"><!--pnid:cN68XnelTWFmHcwywruSHP-->😣</div>
+    </div>
+    <div data-page-node-id="LIq60HGqaYcKLuQfYGmm0R" class="input-demo" style="margin-top:10px"><!--pnid:sqwy1qT5XZl0SzaSyjWcMY-->写点心情备注（可选）</div>
+    <div data-page-node-id="SIayP1PtUfADmDYPBCa7oz" class="p-card">
+      <div data-page-node-id="RpSC20sjfLfY7DaTZ3M3oL" style="font-size:13px; font-weight:700; color:var(--green-700)"><!--pnid:YlN9Rs2daRBoSdKHwPChPT-->今日待办 (0/0)</div>
+      <div data-page-node-id="cI8N0cUa775OmDIvuARsrS" class="p-empty"><!--pnid:SGjBr1oXoGRKRspxJJTiu8-->🌿 暂无待办，点右下角 ＋ 记下一条</div>
+    </div>
+    <div data-page-node-id="OCT7CgKGmRyBdJNpS4tBy3" class="tabbar">
+      <div data-page-node-id="f02s13yX9KAa0cO1x0JmMd" class="fab"><svg data-page-node-id="0u0bCkZUnZEpsnceiiOcjZ" fill="none" height="24" stroke="#fff" stroke-linecap="round" stroke-width="2.2" viewBox="0 0 24 24" width="24"><path data-page-node-id="GQarSRZDV5J0QawBDwvyGh" d="M12 5v14M5 12h14"/></svg></div>
+      <div data-page-node-id="nZNT3Fy4CvXaNctBWHAuFS" class="tab on"><svg data-page-node-id="r08pWJYmhAtRJviltFguvL" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24"><rect data-page-node-id="qaTGmAnanycNYn3hMW3kXm" height="15.5" rx="3.5" width="17" x="3.5" y="5"/><path data-page-node-id="Ne61MekmJJYQ1fMY0jZ7DQ" d="M3.5 9.5h17M8 3.2v3.4M16 3.2v3.4"/></svg><!--pnid:Jcsmnh8bWbVtiy9TWEYxHX-->日历</div>
+      <div data-page-node-id="cFFpusY2TKyIaUsMNv7l3g" class="tab"><svg data-page-node-id="C0y5w1Ky9SzwOmA9hLlPb0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24"><path data-page-node-id="Y6AumY8fhy7W0I0u45O8nQ" d="M12 21v-7"/><path data-page-node-id="RbH0zYbkr67r4cfl7ry63g" d="M12 14c0-3-2.5-4-4.5-4C7.5 6.5 9.5 4 12 4s4.5 2.5 4.5 6c-2 0-4.5 1-4.5 4z"/></svg><!--pnid:sRrZR1oFTcJjBkQ93L2dTx-->灵感</div>
+    </div>
+  </div>
+</div>
+
+<h3 data-page-node-id="zJPmSA9gPo58mYN48jx9wh"><!--pnid:r9btIomAwmiRiCJhC5MzDq-->3.2 日历页</h3>
+<div data-page-node-id="SlZokmFY2JxuMyJydoJPSV" class="two-col">
+  <div data-page-node-id="FrhmXsPXyG0yIaiXlXLdyQ">
+    <ul data-page-node-id="VdaZLETd88ihg1tQ0b0XhU">
+      <li data-page-node-id="8ItPwwc8tc1wYDDBdVh39B"><!--pnid:rrwpAGgBUy91j6ACJJbqJE-->月份导航：左右箭头按钮浅绿底 Green 50、图标 Green 700；月份标题一级文字。</li>
+      <li data-page-node-id="C9VwXgFPrs27x9Ct1mT7hg"><!--pnid:w6sy6vhoGeftDpjU9d4lw5-->星期行：三级文字色，字号缩小一档。</li>
+      <li data-page-node-id="8qF4aThnvzXqt7kdgGgpcH"><!--pnid:2567c6lzBDyXZDDpBEQela-->日期格：浅绿底圆角方块（圆角 10）；<strong data-page-node-id="rsjtMA6xpKyFf1dGDhvS2M"><!--pnid:pfwcVEv2CsxWpBHRi7cLcj-->今日 = 白底 + 1.5px 绿描边（Green 600）+ 绿字</strong><!--pnid:OYdrpM6Nnc0P7veyDPFZBA-->——用"描边"而非"填充"标示今天，与"已完成"的深绿圆点拉开层级，互不混淆；非当月日期降到 35% 透明度。</li>
+      <li data-page-node-id="b6RkZmg427hDTnPl7l4oNZ"><!--pnid:mlfkgVIPUQBRq02dkyrvGr-->圆点图例四色语义：有任务 <code data-page-node-id="mfgoeB0TNvtHlGcYdLsD3p" data-pnid-children="e1ikQuN0YZMiODv65HEcxP">#4E9A6C</code><!--pnid:TQGnVEPUvs2CNWjOK5bHFz--> · 已完成 <code data-page-node-id="BCnhwAhdv2RfbBnEIGHeFt" data-pnid-children="ylKVfAEjJNQImOLW4dwgFx">#2F6543</code><!--pnid:Br8q9n1DXWWrhR05rNWzQd--> · 有心情 <code data-page-node-id="IRX3A5P3vHYYBHFTBm4aU5" data-pnid-children="YcdUAM9Lf98xlaXgKB7JHx">#E8A93D</code><!--pnid:vTfFVp5PwNQEl790DaIp2N--> · 有灵感 <code data-page-node-id="ttK9hPWPHJdGTm4xct4uen" data-pnid-children="flJuWXGawJGj2nWzRAGkFR">#E08E8E</code><!--pnid:wKvkEJxg0HOKOBhUDymgSF-->。</li>
+      <li data-page-node-id="ThN3D5TpiX9tj8VBvZEy00"><!--pnid:tR1ld7aLEGIryAf1ucuslA-->琥珀色只出现在提醒横幅和"有心情"圆点——日历页的暖色标记就像手账荧光笔。</li>
+    </ul>
+  </div>
+  <div data-page-node-id="lXsxMTCn5CfGEN7n8boIf2" class="phone">
+    <div data-page-node-id="FoBJ0NboY4jKSVP5LR0yPl" class="cal-head"><button data-page-node-id="d6tPbTj1fUECEPQ5nvxndm" class="cal-nav"><!--pnid:E3c48EBSvnhFLiofOOLNpI-->‹</button><div data-page-node-id="t6mKDFnUQS3WPXhA6xZDZg" class="cal-month"><!--pnid:iMuZXdECwwJ6zeqTUFOa70-->2026年11月</div><button data-page-node-id="znwtRyiBbhrK3DbibLm8vg" class="cal-nav"><!--pnid:U8f4JHq4RUPewIN4Pm4YRJ-->›</button></div>
+    <div data-page-node-id="VgWD8HPWe7AEsbQXz1mynb" class="cal-grid">
+      <div data-page-node-id="72j5TDM631cYIPTUM3I3NE" class="cal-dow"><!--pnid:6CZ1VBKZYaefoNbJGIhq36-->日</div><div data-page-node-id="6bINv3LzNs1GvTPhzmvyeW" class="cal-dow"><!--pnid:AcTgdbxYdxplCRtehEfUJW-->一</div><div data-page-node-id="LxZLHOJ0xK0p4Bajv81CUZ" class="cal-dow"><!--pnid:wUlYtBY7DrUWX0lelCXMFZ-->二</div><div data-page-node-id="x3tgoM4a4Yu48M85JNmxMX" class="cal-dow"><!--pnid:GsQIMb2JSqxMDwDvntRfJO-->三</div><div data-page-node-id="MceI9LHMyCqQsQqxxp29B5" class="cal-dow"><!--pnid:cDGWRLyiBum4Zu4kvZW7ej-->四</div><div data-page-node-id="AT44QGiGI7qtfhG3fx544w" class="cal-dow"><!--pnid:vjDX536xUkVIQyB3YqYRXF-->五</div><div data-page-node-id="GG2IeJsHihRXTmH0odOdRH" class="cal-dow"><!--pnid:5mgdlcW1s2PcFYgRzr6ZZX-->六</div>
+    </div>
+    <div data-page-node-id="3LZXBSobToyVffORhOOyR2" class="cal-grid" id="calDays"></div>
+    <div data-page-node-id="fI0FEauypAPn33bFyJCPbY" class="legend">
+      <span data-page-node-id="c0mmOYdfM6njzFvgeTeRsc"><i data-page-node-id="sgI1pbdI4NsMe0ph6fcAdN" style="background:#4E9A6C"></i><!--pnid:CWXpn7g2vkzFiqCRoTX1k9-->有任务</span>
+      <span data-page-node-id="wYibNRvWXn5GUG03BwAEF2"><i data-page-node-id="w9e7yWjzr4egpvGdIDFX2C" style="background:#2F6543"></i><!--pnid:0IuP3B1pZukSUnOeznFXMa-->已完成</span>
+      <span data-page-node-id="mM9U1xhfNi4t7ew3MIvCUE"><i data-page-node-id="dMjwAY51iwQvSOHEfYBjPX" style="background:#E8A93D"></i><!--pnid:nDihrEwxWyHj4VQDxEWvRZ-->有心情</span>
+      <span data-page-node-id="E0hipKqhfKi8w5demyt047"><i data-page-node-id="IqTIZ9fD6k7mkedtXVrVh4" style="background:#E08E8E"></i><!--pnid:Os9yppuj4mv233tcrR2SjG-->有灵感</span>
+    </div>
+  </div>
+</div>
+
+<h3 data-page-node-id="SJusPSL90z9ByOFydKOhBt"><!--pnid:B9DNMOWVDnK5OhSJzyjW8Q-->3.3 灵感页</h3>
+<div data-page-node-id="16AC8v7R9KS5cz1BWZzGpy" class="two-col">
+  <div data-page-node-id="sgSZTZvfCzkV4DBYn6Eaub">
+    <ul data-page-node-id="m5Thaw6Zzb99rnhMfJJbAm">
+      <li data-page-node-id="AFzgk3JIF1UbK4De7Z5AqU"><!--pnid:znZ5OOgndsVvi41DrU0lW7-->标题区：「灵感记录」一级文字 + 副文案「记录思考，沉淀复利」二级色。</li>
+      <li data-page-node-id="yn5HQwlhi9frpT4DUhwxEP"><!--pnid:j66acKvp7RV1tTCOIls6Io-->主 CTA「＋写一条灵感」：Green 600 满宽主按钮，白字，投影柔和。</li>
+      <li data-page-node-id="ktAES03ACvFkASDJ7Rp9XV"><!--pnid:uWPWTa7LA0piJ1iPzQwb9f-->空状态：浅绿底圆角区 + 小芽/蒲公英装饰 + 三级色文案「还没有灵感。把今天的想法记下来吧。」</li>
+      <li data-page-node-id="CoEgOD2FSHTmwMTAUGfADP"><!--pnid:6H5HtqGsehl0Az19DKpp2H-->灵感条目（未来有数据时）：左侧 3px 花粉粉竖线 + 白卡，标签用 blossom 浅粉底。</li>
+    </ul>
+  </div>
+  <div data-page-node-id="NLIjdomkyBN0KqMymPYlTw" class="phone">
+    <div data-page-node-id="XPYJ6JNMcxGQhYFh7eWXou" class="p-head"><div data-page-node-id="MConY1Ihjhty2ImgsqSedJ" class="p-title"><!--pnid:WzciUpZuJD6Q8kGXeELa0b-->灵感记录</div><div data-page-node-id="ImTsr9t5TV3pSr5nP7NuEC" class="p-sub"><!--pnid:Ds2kUqtYrohhy8mNYRaW7x-->记录思考，沉淀复利</div></div>
+    <div data-page-node-id="Q0MNpuHUWOvnSpVDBAbdxJ" class="btn btn-p btn-lg" style="margin-bottom:14px"><!--pnid:FKUCrXUpuOfcjqA75VeNVb-->＋ 写一条灵感</div>
+    <div data-page-node-id="2v8yZNRyqoYeJuxX3xMipi" class="empty-demo">
+      <div data-page-node-id="ZYd50DSbykI18eDWUAM8BN" class="leaf"><!--pnid:qAakW4E0kOtR2OEv3aBN8l-->🌱</div>
+      <div data-page-node-id="mik1SwRTkjQzBjLlO1eDD7" class="t"><!--pnid:ubtZzZOZASXAf2byE1LabL-->还没有灵感</div>
+      <div data-page-node-id="SuPMCHQmQvGHs9AEfRrOhR" class="h"><!--pnid:LIBwYW9nVPXsDPHRnGC6L0-->把今天的想法记下来吧，哪怕只有一句话</div>
+    </div>
+  </div>
+</div>
+
+<h3 data-page-node-id="5b4AuJp1jKNxGuWTpxK0g2"><!--pnid:Ahx7cxaBUVHQvBLGKlMJG2-->3.4 快速记录弹层（bottom sheet）</h3>
+<div data-page-node-id="30lzYcgKjXGOteoJIVQFWc" class="two-col">
+  <div data-page-node-id="TZy82FzoAf2NfSTmLVxGoS">
+    <ul data-page-node-id="XqXQzJFHM45NtPOH230YgN">
+      <li data-page-node-id="fvBlOgK3BMUDh0L9JpalTm"><!--pnid:ptkCfpPacyWQoOpmRLD24Q-->弹层：白底、顶部 22px 圆角、灰色 grabber 小横条、背后页面加深绿黑遮罩 <code data-page-node-id="6dpd9ZNodU9KR1dzyMyPpA" data-pnid-children="kLDcWMclVaVXUtV8nmvyxG">rgba(30,64,48,.35)</code><!--pnid:lwJI4loGYV1h86v7pYDc5v-->。</li>
+      <li data-page-node-id="Yb8tzvbjNinm8yZHnA5sai"><!--pnid:8SpjZtUogDPMxdyV7F3meP-->标题「快速记录」一级文字。</li>
+      <li data-page-node-id="z8cOkf1QRkBcEv3OXrVCHj"><!--pnid:0nMgqvxeT5agiwBYzb5nSz-->输入框：白底（弹层内反转为白底绿边），聚焦绿描边 + 光环。</li>
+      <li data-page-node-id="dsG0GSyjqfZWEDQmgT0uXA"><!--pnid:bKL5Zh3WMfY7s3aItQMNrb-->分段控件「今日/循环/某日」：浅绿底轨道，选中 Green 600 白字圆角块——和现有交互一致，只换色。</li>
+      <li data-page-node-id="Z1dSNSdi1z11Jp4m1igVM4"><!--pnid:xHAt8PCA0JFh13qcl483Mi-->「记下」主按钮 Green 600；「取消」幽灵按钮 Green 700 文字。</li>
+    </ul>
+  </div>
+  <div data-page-node-id="zoICT6SwNIp2wJJ7FBN843">
+    <div data-page-node-id="p15IfT0HZwFS9jLlt1aRHt" class="sheet-demo">
+      <div data-page-node-id="eDSmrYPfYPUV2myjSpdk2E" class="grabber"></div>
+      <div data-page-node-id="5gA9aQLQ32i7O7Sq1oMOvJ" style="font-size:16px; font-weight:700; margin-bottom:12px"><!--pnid:U3nf0jqZfFMdU90wFpWv5Y-->快速记录</div>
+      <div data-page-node-id="RC09z9lIdpkJwYwWGG42wI" class="input-demo focus" style="background:#fff"><!--pnid:LPSrkGeTvXOjMm1UhwGCAL-->随记点什么…</div>
+      <div data-page-node-id="FspQ1LC2wOJOLb2P9PueM8" class="seg" style="margin:12px 0">
+        <div data-page-node-id="9uqGOkYJRIvnwS8IabXniL" class="on"><!--pnid:xxxR8vERuPvVbRQkFbGqxP-->今日</div><div data-page-node-id="RwsHUpy0Bs3hEsqC3rq5JS"><!--pnid:F6UfMQCodUu9UIBw5uIFce-->循环</div><div data-page-node-id="fGl9sncPEySmPifVFVBbzE"><!--pnid:noixecdoQhbAphsrUiF6th-->某日</div>
+      </div>
+      <div data-page-node-id="O2wHORFkcZtrNbYRRzPFcz" style="display:flex; gap:10px">
+        <div data-page-node-id="UmWUOWfRssXM6dx2cCYWWT" class="btn btn-ghost" style="flex:1"><!--pnid:EiCJsnmU4g3TJSKhsEYMHl-->取消</div>
+        <div data-page-node-id="Tt7RcY6fmFPZzC8JWgEzye" class="btn btn-p" style="flex:2"><!--pnid:rjdm4qc5Jl4Mv6dhZIShQa-->记下</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3 data-page-node-id="4TDfXUqBkhEJzNCw1C9KUG"><!--pnid:kFzBvydAbqIq70MI5HCdiR-->3.5 日期详情弹层 & 3.6 设置抽屉</h3>
+<div data-page-node-id="fyLnJROsTsDSENAJ4Bp1ws" class="two-col">
+  <div data-page-node-id="4fBYK8q1DEmT4vAhbhJzOk">
+    <div data-page-node-id="a1w2ilaDDdwNpg1ZjiBQwu" class="sheet-demo">
+      <div data-page-node-id="XYCsTo9kO5pyaqoPG2ASiD" class="grabber"></div>
+      <div data-page-node-id="KL4xPFraYpEVYjm3pUW8GT" style="font-size:16px; font-weight:700; margin-bottom:14px"><!--pnid:ubR26AtQYKaqsSJcFIoDvi-->11月2日 周一</div>
+      <div data-page-node-id="979nv66kLtu1lIVF6FEQZi" class="p-label" style="margin-top:0"><!--pnid:4Puo2tRJkPTRe9f6O0C7ym-->计划 (0/0)</div>
+      <div data-page-node-id="60qDQo5lzkZTROLmf1VHfE" class="p-empty" style="background:transparent"><!--pnid:aySJySnjnu2mhKH8zsR3MS-->这一天没有计划</div>
+      <div data-page-node-id="fDuMYvDe5g5XG6Xrd9faQS" class="p-label"><!--pnid:jP5oZ6Pl6vT9JdDvaXbbOX-->心情</div>
+      <div data-page-node-id="2DJCTpALbt258Czm40c3hh" style="font-size:13.5px; display:flex; align-items:center; gap:8px"><span data-page-node-id="fhrIOhu761fsfRwfx6MF71" style="font-size:18px"><!--pnid:9kroTAl6tvtgAmBfvKUH58-->😊</span><!--pnid:xSuclxMWUtFfwetWpMwMF6-->很好</div>
+      <div data-page-node-id="mxbiDld9B2vkNMDZ4oN9gB" class="p-label"><!--pnid:wfX4ozXBjQdwIpzZbSD8NS-->灵感 (0)</div>
+      <div data-page-node-id="rNuYuWSZX0ya1FBKvMq8ha" class="p-empty" style="background:transparent"><!--pnid:fa9GtDceedCHgjLvT59Ea0-->无</div>
+      <div data-page-node-id="rTDa1IYxi1hmr5hdixMi3H" class="btn btn-p btn-lg" style="margin-top:8px"><!--pnid:fEEmMldcG2n0BQrMBEgK2G-->关闭</div>
+    </div>
+  </div>
+  <div data-page-node-id="Ca3mvJ6QQwGlTZvLgoEpyi" class="drawer">
+    <div data-page-node-id="pmSWYAoOJG9WQzEaiawt2J" style="font-size:16px; font-weight:700; margin-bottom:14px"><!--pnid:MH0zntRRWYbQy81gmTJv9F-->设置</div>
+    <div data-page-node-id="XAZMPDoRYG0Ya7eJ7KGhTV" class="set-card">
+      <h4 data-page-node-id="fgsaOZdbcCLAYQOgH8u902"><!--pnid:F0zuFf31JAVVdwAMBESEYv-->数据备份</h4>
+      <div data-page-node-id="7sHcjFX5hDgPOiXkhMNGUu" class="btn-row"><span data-page-node-id="W5wvNjwcEg78LTK1vmawu3" class="btn btn-p btn-sm"><!--pnid:VlSBeFoEZcbujXA1e6MnVt-->导出 JSON</span><span data-page-node-id="M1YaFTCmWliqJ05PZfEszA" class="btn btn-s btn-sm"><!--pnid:UHvM1en4SzlFlOVWEntzps-->导入 JSON</span></div>
+    </div>
+    <div data-page-node-id="EpINi6THbeGL386rMW7qsN" class="set-card" style="border-color:#F0D9D3">
+      <h4 data-page-node-id="14FSL0462emeWhDEKLhomf"><!--pnid:rleV7x7ol26T4eOXIS6jqy-->危险区</h4>
+      <div data-page-node-id="TWdiCz8TATYVfJqUjY6tSl" class="btn btn-d btn-sm" style="width:100%"><!--pnid:Yqd8xvngKiiOgZTMQOayHi-->清空全部数据</div>
+    </div>
+    <div data-page-node-id="9KGydkurKsFUOI65LomflQ" class="set-card">
+      <h4 data-page-node-id="Bb5K5icpJ6kLeVkn7IgzhR"><!--pnid:xzmMfaZAfbUjnGPMm2AGnT-->到期提醒</h4>
+      <div data-page-node-id="sz6Yncdz5fPvd98IOsec3r" style="display:flex; gap:10px; align-items:center">
+        <div data-page-node-id="c6v536e0wbFb5ADvvnknnT" style="flex:1; font-size:12px; color:var(--t2)"><!--pnid:oYvloEX050vFfss24y6wph-->通知已被拒绝，可在浏览器站点设置中重新开启</div>
+        <div data-page-node-id="nn3cLjRLgk2UGo8QFYLaKN" class="btn btn-s btn-sm" style="background:var(--sky-100); color:#3D739E"><!--pnid:mUeqznQVFzpmBzt7WmCySq-->授权/重试</div>
+      </div>
+    </div>
+  </div>
+</div>
+<p data-page-node-id="UaTzkvD19mHJPRgLrsKnNs" style="font-size:13px; color:var(--t2); margin-top:10px"><!--pnid:F5l3kC8LTzNwPhDwN0fNq5-->设置抽屉要点：危险区卡片整体用极浅的砖红描边提示风险但不刺眼；「授权/重试」用天空蓝系与绿系区分"信息操作"与"主操作"。</p>
+
+<!--pnid:AexzFQENC7DcnqceAk6plN--><!-- ============ 4 组件 ============ -->
+<h2 data-page-node-id="DP2MitYZiT7g4EAbDDDfoa" id="s4"><span data-page-node-id="IxxDnt1gnTzZUm20DkcgmX" class="no"><!--pnid:CsrvAd30TusBekF8a9nen8-->04</span><!--pnid:JwCp6P5gNsqCRO4z6U04qe-->细节组件统一样式</h2>
+
+<h3 data-page-node-id="yQZbZlNCXnpMVjkf4rC33X"><!--pnid:QwuWDSH08dCHxlzQlsCKFY-->4.1 按钮（四档语义）</h3>
+<div data-page-node-id="Jsg1PpH4sYZ1ox1zYRQNeK" class="card btn-row">
+  <span data-page-node-id="h2FZ4TaxAe0szAJBHRjdO5" class="btn btn-p"><!--pnid:rYckF0J1oLEdEKES2KBPfh-->主要按钮</span>
+  <span data-page-node-id="aAiWoWAmpDrVrZlEUSjmRS" class="btn btn-s"><!--pnid:cSq6VWs22nUoMd2p3blrnX-->次要按钮</span>
+  <span data-page-node-id="8IkSn4nIhcSTkF7RHR7CGI" class="btn btn-o"><!--pnid:KosS7obhcYJizg2HGL6v1t-->描边按钮</span>
+  <span data-page-node-id="q4o3fYeO4PaIP7LjKm642z" class="btn btn-d"><!--pnid:ez4Elz6DkITTVirjVjqlC6-->危险按钮</span>
+  <span data-page-node-id="g1zKtV8RXWQ1cG4v5w6exp" class="btn btn-ghost"><!--pnid:Zvcc4kInh9GqCN6GgnwiXi-->幽灵按钮</span>
+</div>
+<table data-page-node-id="f1gjOU08oesEc8xb6MxhLs">
+  <tr data-page-node-id="lwAWZmNkmpaIu0IuB24mVT"><th data-page-node-id="gNA3Bk21h5AyaaPvGG2SJE"><!--pnid:qO98FavNxpGVefYx87PRVo-->类型</th><th data-page-node-id="C08UAvsc7hcBNdvPEaUjqz"><!--pnid:qnOT3VSUdYMZFPGGBtpGUd-->填充 / 文字</th><th data-page-node-id="IXm9ON2BUxVQX7DhFS9ExK"><!--pnid:TZUXimWJRxBROlM2CZTBhH-->用法</th></tr>
+  <tr data-page-node-id="m7DkShwCEaKX5VK107I7FF"><td data-page-node-id="UxPeTzOIC1DLuUdgYklqKX"><!--pnid:wvfeH4qjMi2AcsA3NhsnyL-->主要</td><td data-page-node-id="43WZbpoOm8ZNuffXjpVxyd"><code data-page-node-id="rWAZlO96DxFgJkzqrLfvJT" data-pnid-children="sCLaEjnFAviWQE12GeP4Ze">#3F8759</code><!--pnid:PnZ1O5uJWtLrN2GAGs6VMT--> / 白</td><td data-page-node-id="xqEjFrVxWi9rASS0j5jNwN" class="dim"><!--pnid:4QllqnnDhL9zAhsNRTyBf1-->每屏最多一个：记下、写一条灵感、关闭</td></tr>
+  <tr data-page-node-id="FYUOv6yLTRKXKQpyLlj6v2"><td data-page-node-id="lJylPu8rrJ4UlglUBeAjZx"><!--pnid:qr8h5kyOOlIpVfusMtvtdE-->次要</td><td data-page-node-id="2TUlhnTlUXhiOLXs8n8ABg"><code data-page-node-id="bGvxfWMDQwulZkxyZZdkOw" data-pnid-children="7lMye96DUvFndzBrwPm8Tt">#DCEBE1</code><!--pnid:aVEaCYjV2Tky8MFgNAc3J5--> / <code data-page-node-id="JBmiRF79ntYOU9ljfhCPNe" data-pnid-children="b2dnMGMalcA1G0nMhtLoct">#2F6543</code></td><td data-page-node-id="f4NZfoVfCLGCccigd6p1gX" class="dim"><!--pnid:Fk1fQR01bfGQUalCXiTopp-->导入 JSON、分段未选项底</td></tr>
+  <tr data-page-node-id="KsaJh9bIMdHx2KE2xbf8UJ"><td data-page-node-id="o7SCDqB5do01ves88p9bgl"><!--pnid:GvlYDQE69KuvSwT4ShFCEi-->描边</td><td data-page-node-id="zqLnQQ9UBbnfIZEXEijnk2"><!--pnid:nlAacx7vhfLFhLqTnaUbCz-->白底 / <code data-page-node-id="WlZ8zshzc2TElrQIP4IqKB" data-pnid-children="rJo9W7gv21uD1pTNmNRyA4">#6B7A6F</code><!--pnid:HqnNvaOPrRvbCJUQyhSYVT--> 字，<code data-page-node-id="bOWxnQoppIpKalAkFFXYyX" data-pnid-children="4XQHpLhOy7NbOkw4iW2OVQ">#E8E5DC</code><!--pnid:4LYnSsl8Fb6h51JA2XEtJj--> 边</td><td data-page-node-id="tJ9qeACHUvYy5j6lQ8FMa0" class="dim"><!--pnid:4pRbxOcVWq8OZGdK3WV06j-->低优先级并列操作</td></tr>
+  <tr data-page-node-id="ywnWliEts5dLKMwkMWcA9H"><td data-page-node-id="x3mt2TEhKTRdOaMjQBbSLN"><!--pnid:qHdUrfGIvj6wLJ9o64eaO8-->危险</td><td data-page-node-id="va9icHO5jNuBhlULe0mAob"><code data-page-node-id="BDQ2535fhD4vJgalWPN4MB" data-pnid-children="7atCGlwH7uxwKQn0KeOYcN">#F9E9E5</code><!--pnid:J9J59KAUL6580hmPW5UvWp--> / <code data-page-node-id="iNrgF8CSImxMPE30wa7QFA" data-pnid-children="DsLZaOpTZm5Jj0H4GV5wwF">#C96F5E</code></td><td data-page-node-id="eilDCMqlZHzKn8HRMphQPc" class="dim"><!--pnid:TcmZ6i4yjyfV6ytr8bl3bV-->仅"清空全部数据"</td></tr>
+  <tr data-page-node-id="B4NVr3wXIpFx3AL4V8xnbq"><td data-page-node-id="8nOlHSIEFaGecuEtg2XgaF"><!--pnid:AidiuFu4ULdeDIOhxcXvFc-->幽灵</td><td data-page-node-id="4hgVmvsG4SDfaEGU3QAZma"><!--pnid:xB5TuPvny3xLLkKt7Ov7RK-->透明 / <code data-page-node-id="VCTBtbv05KkfMpQzO4MW2I" data-pnid-children="1cCPtKh1fLaiCni2KNjDcC">#2F6543</code></td><td data-page-node-id="pKzVU8ZiwyrBoGgdNPJ0Ky" class="dim"><!--pnid:sLRgaWhDf0Ix654t8eXRX2-->取消、收起</td></tr>
+</table>
+<p data-page-node-id="ePm3EvQnK6JDDm3ihVpHuk" style="font-size:13px; color:var(--t2)"><!--pnid:LahvUeGQH9RZvOW9WAAb7M-->规格：高度 44px（小 34px），圆角 14px（小 11px），字号 14px（小 12.5px），字重 600；投影统一 <code data-page-node-id="41W6aw7pRKSX6SFmzZc964" data-pnid-children="Yx1vTtATnVMhPhbUKso49E">0 4px 12px rgba(63,135,89,.28)</code><!--pnid:aDiwKnWN8KQq4NYDNvFPNm-->（仅主要按钮与 FAB）。</p>
+
+<h3 data-page-node-id="BYUDDjT3bKJaQ3Btj5YAb8"><!--pnid:yuOme6Y03zn4qN8uCJ0NXK-->4.2 标签 / Chips</h3>
+<div data-page-node-id="f9eS7AT71asjgNaPB35y4V" class="card btn-row">
+  <span data-page-node-id="F0VfarXsMIvBkrTwaJ2qdf" class="tag"><!--pnid:Sa2MTh2OyrjnxmoYlBf5xT-->任务</span><span data-page-node-id="BSIEnMYBzNRflRYPFXMdRe" class="tag amber"><!--pnid:oI66IUwPs9yEUgInRnc1d6-->提醒</span><span data-page-node-id="fMzuTHL1pWPTW2KIiPcBpk" class="tag sky"><!--pnid:jHQYYluMsReALMAm7nQuKU-->日程</span><span data-page-node-id="BlBSsrcRKGRPvY4d6AUmw2" class="tag blossom"><!--pnid:y4cL4LELcRPnQfaZkvfPtF-->灵感</span><span data-page-node-id="j7bJTRmgrOWgfd94gO7VyJ" class="tag plain"><!--pnid:Iu7qP0k4eSeBeXxmj7UisC-->归档</span>
+</div>
+<p data-page-node-id="9zkok4eH6PWOuM3cseTNpk" style="font-size:13px; color:var(--t2)"><!--pnid:AayZf6I7DYdcnGfMdC3bQX-->圆角 999（胶囊形），高 26px，字号 12px 字重 600；底色 = 对应色浅阶，文字 = 对应色加深变体。同一界面同屏 ≤3 种颜色标签。</p>
+
+<h3 data-page-node-id="559vtYOz8SvmTTOzE40sDj"><!--pnid:VdX17KXSEfGZ3ICvFuoPmW-->4.3 输入框</h3>
+<div data-page-node-id="mrSA0w4gt9PoePOJvLrH7S" class="card">
+  <div data-page-node-id="XT1YMhD5uRB6npC6G4LD30" class="input-demo" style="margin-bottom:10px"><!--pnid:0peFHGQejOzMURuVFsZLmD-->默认态：浅绿底无边框</div>
+  <div data-page-node-id="PdiTSnlOSzBnG7yBhO8UDd" class="input-demo focus"><!--pnid:VFD0K4Yf3tWW9DykbpB6hH-->聚焦态：白底 + #9CC7AE 描边 + 3px 绿光环</div>
+  <p data-page-node-id="bnVbZFKo1Caqu5K5Acu67Q" style="font-size:13px; color:var(--t2); margin-top:10px"><!--pnid:KIQ66w8cPm1d1VKwGhKqhP-->圆角 13px，左右内边距 14px，占位文字用三级色。</p>
+</div>
+
+<h3 data-page-node-id="lXv48psqQRIhZ54zsEtHEG"><!--pnid:8rmY1IGunrGKS7o3YeQTyb-->4.4 空状态（三要素统一）</h3>
+<div data-page-node-id="erJk2n1jDHQCctHJfl70b3" class="card">
+  <div data-page-node-id="mQfvzdDwbpbOkqxJwIgww2" class="empty-demo">
+    <div data-page-node-id="SgRFAIgChKqMfPYPBLChmY" class="leaf"><!--pnid:KYxob204RSbyeXJY89FyI4-->🍃</div>
+    <div data-page-node-id="8TxcTU9UHblali4rt4C8xD" class="t"><!--pnid:7ixieKjf6fMMoAlog5EGX8-->这里还空着</div>
+    <div data-page-node-id="JHLJNUpm7nNFQYXECmkvTc" class="h"><!--pnid:zQwPiMK07KBEQH5DXLPTh0-->一句轻提示 + 一个行动建议</div>
+  </div>
+  <p data-page-node-id="6sEFu8PZFkdY6AFZlhZeVg" style="font-size:13px; color:var(--t2); margin-top:10px"><!--pnid:pLbNIEtJh31pRBJCW3OixA-->模板：<strong data-page-node-id="FbeahrMiiLDsoC7CBirS3M"><!--pnid:ZSpuFnmvMLVzxzfLdKOWkP-->一个自然系小装饰（叶/芽/蒲公英，emoji 或线性插画皆可）+ 二级色短句 + 三级色行动建议</strong><!--pnid:XirzbC2nHX7NZciGduR6L1-->。全应用空状态保持同一构图，只换文案。</p>
+</div>
+
+<h3 data-page-node-id="USTIMJGFUntiSrY6duXt2i"><!--pnid:3cOt7EayId1eFucqTijz4h-->4.5 底部导航与 FAB</h3>
+<ul data-page-node-id="ZLLY3jo4EPM868sMTyZgxp">
+  <li data-page-node-id="YxCJoOA18WFRJDapVHKmBM"><!--pnid:XrY8tBAedo5xhKcofhVH2i-->底栏：白底、顶部 1px 分割线；未选中图标三级色，选中图标 Green 700 + 加粗小字；图标 22px。</li>
+  <li data-page-node-id="CBvpErERAcufrWPK9HK3Xi"><!--pnid:wIvoORyLNCyMTSTSTP2GUA-->FAB：52px 圆角方形（18px 圆角，squircle），Green 500 底 + 白色 24px 加号，投影 <code data-page-node-id="UiLfbkWe2FFf1wK3s0xLxX" data-pnid-children="u7L1mihhzvSMtXwPMCy6YD">0 6px 16px rgba(78,154,108,.35)</code><!--pnid:XLQrqCPFPslVuoiz2tDvhK-->；点按时缩放 0.95 回弹，强化"高效"手感。</li>
+  <li data-page-node-id="2ASX8a1LLi4vNMma5mNFu2"><!--pnid:gnYMJGAiRkStpxBvw4xmX3-->菜单图标（右上角）：圆形浅绿底 + Green 600 线性菜单图标。</li>
+</ul>
+
+<!--pnid:GSyw5lEyZdIc7VauvwBnDu--><!-- ============ 5 移动端 ============ -->
+<h2 data-page-node-id="DkkKKjAG21m6WFQPNUSubv" id="s5"><span data-page-node-id="7XnceRdR9tGykNhlDCct55" class="no"><!--pnid:k2f9ofBoCNGkOxRS5LdF87-->05</span><!--pnid:CKEcl3xCiJcz3sltY2Sf7i-->移动端适配要点</h2>
+<div data-page-node-id="S0gs2iOBibJoqhXXBETRET" class="card">
+  <ul data-page-node-id="cjTzxlEN9B6qKTNevEEztN" class="check">
+    <li data-page-node-id="E5QLgrCntBuTxBg6lOJwWL"><strong data-page-node-id="CgDgkWmrnDurlPEeKGcX2K"><!--pnid:hkD62tvPHXtxbO7zPWfg3w-->间距体系（8pt 网格）：</strong><!--pnid:Hf062R4u4N9tFgNsNoLlO8-->卡片内边距 16–20px，卡片间距 12–14px，屏幕左右留白 16px——所有间距都是 4 的倍数。</li>
+    <li data-page-node-id="uMkjZqIK9Qn8v0ruNN8Cwq"><strong data-page-node-id="xnNVBWqSvXIb6pf4SfRIRP"><!--pnid:pdD6EtFEYxDXvkPnvCvfbo-->触控目标 ≥ 44×44px：</strong><!--pnid:0oSXoztHSfNoBsxv4M4m4x-->心情 chip、日历格、分段控件全部达标；相邻可点元素间距 ≥ 8px 防误触。</li>
+    <li data-page-node-id="IHsHKBHLSmCcvbQ6ZiYft5"><strong data-page-node-id="RdFRLL9O6DB3PXOYOlGCY2"><!--pnid:xDWccU9CmfOlmLVux0r2h6-->字号阶梯：</strong><!--pnid:VU0eij28EJRKkcu1vSD0rK-->12 / 13 / 15 / 17 / 20 / 24，基准 15px；标题字重 700，正文 400–500，保证阳光下可读。</li>
+    <li data-page-node-id="grGu86EsJMdjQJOgAH2JLW"><strong data-page-node-id="wvNcCOGmrQUmNV9tTlM27X"><!--pnid:7i0DQOLQvnF7PJl6gpwluI-->安全区：</strong><!--pnid:EoMWKIk03Iq4sYJGFO3DqL-->底部导航与 FAB 适配 <code data-page-node-id="63eUJbNUMuHmj7jtsPA8y6" data-pnid-children="hpkBxa8fiQ9lcftAm5D1jt">env(safe-area-inset-bottom)</code><!--pnid:rRZEZF1GebWR1i6TaBFCWq-->；弹层顶部圆角不被刘海遮挡。</li>
+    <li data-page-node-id="rjpTZEpa5I9vQ4tKsl7hRN"><strong data-page-node-id="W6SkJeA4BxHixskR0eYVFA"><!--pnid:ykIgyJesSCkUfENmTzTo8j-->深色模式（可选二期）：</strong><!--pnid:cZjBts71XnIA3FTPzJBEsl-->底 <code data-page-node-id="6m35T5rs434tMcVomfTtOm" data-pnid-children="GgDvep2UaQ4KMacrctgJ0R">#1C2620</code><!--pnid:UbK9nQIdPG5C4AHjgLq0l3-->、卡 <code data-page-node-id="ZqznCSBxBx6IzyyIUNLwsh" data-pnid-children="gqpPotyiMsrKZZTYEhvhnW">#232F27</code><!--pnid:MHT4D8aPCuWsR69JyvvRvM-->、主色不变仅提亮到 Green 400，文字用 Green 900 的反阶。</li>
+    <li data-page-node-id="JiYHvrLMxd0Qv0skRuyQ2M"><strong data-page-node-id="QHU1MsMRMAQYhzTgsD2Bze"><!--pnid:AIzXRR5edsGgzsmDunLPZc-->动效：</strong><!--pnid:Vz7H7ldiNxLzwOkqXRVjMw-->统一 150–200ms ease-out；页面切换淡入上移 4px；选中态缩放 1.04——"轻"是治愈感的另一半。</li>
+  </ul>
+</div>
+
+<footer data-page-node-id="cOWoK9upl8jnKyLyfde0UV" class="doc"><!--pnid:DX13MFHbe5nhgLwR08hmmR-->
+  灵感记录 · 视觉设计方案 v1.0 · 色彩变量与本页 :root 一致，可直接复制落地 · 本方案仅改视觉层，功能与信息结构零改动
+</footer>
+</div>
+
+<script data-page-node-id="R1DoREdm03Rugmz29wG7L9" data-pnid-children="0CXdq53Ohh37hBD84PMoEe">
+  // calendar mock: Nov 2026 starts Sunday
+  const daysEl = document.getElementById('calDays');
+  const frag = document.createDocumentFragment();
+  for(let i=0;i<42;i++){
+    const d = i+1, cell = document.createElement('div');
+    cell.className = 'cal-day';
+    if(d>30){ cell.classList.add('out'); cell.textContent = d-30; }
+    else {
+      cell.textContent = d;
+      if(d===2){ cell.classList.add('today'); cell.innerHTML = '2<div class="dots"><span class="dot" style="background:#4E9A6C"></span><span class="dot" style="background:#E8A93D"></span></div>'; }
+      else if([5,12,19].includes(d)) cell.innerHTML = d+'<div class="dots"><span class="dot" style="background:#4E9A6C"></span></div>';
+      else if([9,16].includes(d)) cell.innerHTML = d+'<div class="dots"><span class="dot" style="background:#E8A93D"></span></div>';
+      else if(d===23) cell.innerHTML = d+'<div class="dots"><span class="dot" style="background:#E08E8E"></span></div>';
+    }
+    frag.appendChild(cell);
+  }
+  daysEl.appendChild(frag);
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="日历">
+  <rect x="4.5" y="5.5" width="15" height="14" rx="2.5" fill="#9CC7AE" fill-opacity="0.4"/>
+  <path d="M8.5 5.5V3.5"/>
+  <path d="M15.5 5.5V3.5"/>
+  <path d="M4.5 9.2h15"/>
+  <circle cx="12" cy="16.5" r="1.7" fill="#4E9A6C"/>
+</svg>
